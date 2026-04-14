@@ -1,0 +1,751 @@
+player,team,goals,assists,matches,season,league
+Erling Haaland,Manchester City FC,22,7.0,30,2025,PL
+Thiago Rodrigues,Brentford FC,21,1.0,32,2025,PL
+Antoine Semenyo,Manchester City FC,15,4.0,30,2025,PL
+João Pedro,Chelsea FC,14,5.0,32,2025,PL
+Viktor Gyökeres,Arsenal FC,12,,30,2025,PL
+Danny Welbeck,Brighton & Hove Albion FC,12,,31,2025,PL
+Hugo Ekitike,Liverpool FC,11,4.0,29,2025,PL
+Jean-Philippe Mateta,Crystal Palace FC,10,,25,2025,PL
+Dominic Calvert-Lewin,Leeds United FC,10,1.0,29,2025,PL
+Harry Wilson,Fulham FC,10,6.0,30,2025,PL
+Eli Kroupi,AFC Bournemouth,10,,32,2025,PL
+Richarlison,Tottenham Hotspur FC,9,3.0,27,2025,PL
+Bruno Guimarães,Newcastle United FC,9,4.0,24,2025,PL
+Bryan Mbeumo,Manchester United FC,9,3.0,27,2025,PL
+Cole Palmer,Chelsea FC,9,1.0,22,2025,PL
+Benjamin Šeško,Manchester United FC,9,1.0,29,2025,PL
+Raúl Jiménez,Fulham FC,9,3.0,31,2025,PL
+Ollie Watkins,Aston Villa FC,9,1.0,31,2025,PL
+Morgan Gibbs-White,Nottingham Forest FC,9,3.0,32,2025,PL
+Enzo Fernández,Chelsea FC,8,3.0,30,2025,PL
+Bruno Fernandes,Manchester United FC,8,17.0,29,2025,PL
+Jarrod Bowen,West Ham United FC,8,8.0,32,2025,PL
+Casemiro,Manchester United FC,8,2.0,30,2025,PL
+Morgan Rogers,Aston Villa FC,8,6.0,32,2025,PL
+Zian Flemming,Burnley FC,8,,26,2025,PL
+Jaidon Anthony,Burnley FC,7,1.0,32,2025,PL
+Ismaïla Sarr,Crystal Palace FC,7,1.0,21,2025,PL
+Beto,Everton FC,7,1.0,32,2025,PL
+Kiernan Dewsbury Hall,Everton FC,7,3.0,25,2025,PL
+Nick Woltemade,Newcastle United FC,7,3.0,28,2025,PL
+Kevin Schade,Brentford FC,7,3.0,29,2025,PL
+Phil Foden,Manchester City FC,7,3.0,29,2025,PL
+Matheus Cunha,Manchester United FC,7,2.0,29,2025,PL
+Cody Gakpo,Liverpool FC,6,4.0,30,2025,PL
+Mohamed Salah,Liverpool FC,6,6.0,25,2025,PL
+Lukas Nmecha,Leeds United FC,6,1.0,28,2025,PL
+Bukayo Saka,Arsenal FC,6,3.0,27,2025,PL
+Iliman Ndiaye,Everton FC,6,3.0,26,2025,PL
+Evanilson,AFC Bournemouth,6,1.0,30,2025,PL
+Noah Okafor,Leeds United FC,6,,26,2025,PL
+Eberechi Eze,Arsenal FC,6,2.0,31,2025,PL
+Brian Brobbey,Sunderland AFC,6,1.0,28,2025,PL
+Anthony Gordon,Newcastle United FC,6,2.0,26,2025,PL
+Thierno Barry,Everton FC,6,1.0,32,2025,PL
+Tijjani Reijnders,Manchester City FC,5,2.0,31,2025,PL
+Pedro Neto,Chelsea FC,5,4.0,30,2025,PL
+Marcus Tavernier,AFC Bournemouth,5,4.0,28,2025,PL
+Dango Ouattara,Brentford FC,5,3.0,26,2025,PL
+Callum Wilson,West Ham United FC,5,1.0,31,2025,PL
+Dominik Szoboszlai,Liverpool FC,5,3.0,30,2025,PL
+Harry Kane,FC Bayern München,31,4.0,27,2025,BL1
+Deniz Undav,VfB Stuttgart,18,5.0,25,2025,BL1
+Luis Díaz,FC Bayern München,15,9.0,27,2025,BL1
+Sehrou Guirassy,Borussia Dortmund,13,,29,2025,BL1
+Michael Olise,FC Bayern München,12,18.0,28,2025,BL1
+Christoph Baumgartner,RB Leipzig,12,7.0,28,2025,BL1
+Said El Mala,1. FC Köln,11,3.0,29,2025,BL1
+Haris Tabaković,Borussia Mönchengladbach,11,1.0,28,2025,BL1
+Yan Diomandé,RB Leipzig,11,6.0,28,2025,BL1
+Patrik Schick,Bayer 04 Leverkusen,10,2.0,23,2025,BL1
+Nadiem Amiri,1. FSV Mainz 05,10,2.0,21,2025,BL1
+Andrej Kramarić,TSG 1899 Hoffenheim,10,5.0,29,2025,BL1
+Jonathan Burkardt,Eintracht Frankfurt,10,,17,2025,BL1
+Fisnik Asllani,TSG 1899 Hoffenheim,9,5.0,29,2025,BL1
+Ermedin Demirovic,VfB Stuttgart,9,3.0,20,2025,BL1
+Mohammed Amoura,VfL Wolfsburg,8,3.0,26,2025,BL1
+Romulo Cruz,RB Leipzig,8,3.0,25,2025,BL1
+Serge Gnabry,FC Bayern München,8,6.0,25,2025,BL1
+Alejandro Grimaldo,Bayer 04 Leverkusen,8,7.0,25,2025,BL1
+Igor Matanovic,SC Freiburg,8,1.0,27,2025,BL1
+Maximilian Beier,Borussia Dortmund,8,3.0,28,2025,BL1
+Tim Lemperle,TSG 1899 Hoffenheim,7,2.0,24,2025,BL1
+Vincenzo Grifo,SC Freiburg,7,1.0,29,2025,BL1
+Julian Brandt,Borussia Dortmund,7,3.0,27,2025,BL1
+Grischa Prömel,TSG 1899 Hoffenheim,7,2.0,29,2025,BL1
+Jakub Kamiński,1. FC Köln,7,3.0,29,2025,BL1
+Jens Stage,SV Werder Bremen,7,2.0,24,2025,BL1
+Karim Adeyemi,Borussia Dortmund,7,3.0,27,2025,BL1
+Ragnar Ache,1. FC Köln,7,3.0,28,2025,BL1
+Jamie Leweling,VfB Stuttgart,7,7.0,27,2025,BL1
+Can Uzun,Eintracht Frankfurt,6,3.0,18,2025,BL1
+Malik Tillman,Bayer 04 Leverkusen,6,,24,2025,BL1
+Dzenan Pejcinovic,VfL Wolfsburg,6,,28,2025,BL1
+Arnaud Kalimuendo,Eintracht Frankfurt,6,1.0,14,2025,BL1
+Justin Njinmah,SV Werder Bremen,5,,29,2025,BL1
+Ilyas Ansah,1. FC Union Berlin,5,1.0,29,2025,BL1
+Danel Sinani,FC St. Pauli 1910,5,3.0,27,2025,BL1
+Luka Vušković,Hamburger SV,5,,26,2025,BL1
+Rayan Philippe,Hamburger SV,5,,27,2025,BL1
+Edmond Tapsoba,Bayer 04 Leverkusen,5,2.0,24,2025,BL1
+Ernest Poku,Bayer 04 Leverkusen,5,5.0,28,2025,BL1
+Christian Kofane,Bayer 04 Leverkusen,5,3.0,28,2025,BL1
+Albert Sambi Lokonga,Hamburger SV,5,,23,2025,BL1
+Rani Khedira,1. FC Union Berlin,5,1.0,28,2025,BL1
+Maximilian Mittelstädt,VfB Stuttgart,5,3.0,28,2025,BL1
+Stefan Schimmer,1. FC Heidenheim 1846,5,1.0,26,2025,BL1
+Lennart Karl,FC Bayern München,5,4.0,28,2025,BL1
+Chris Führich,VfB Stuttgart,5,6.0,29,2025,BL1
+Nicolas Jackson,FC Bayern München,5,1.0,21,2025,BL1
+Ransford Königsdörffer,Hamburger SV,5,1.0,29,2025,BL1
+Lautaro Martínez,FC Internazionale Milano,16,4.0,28,2025,SA
+Anastasios Douvikas,Como 1907,11,1.0,32,2025,SA
+Nico Paz,Como 1907,11,6.0,31,2025,SA
+Marcus Thuram-Ulien,FC Internazionale Milano,10,5.0,26,2025,SA
+Keinan Davis,Udinese Calcio,10,3.0,27,2025,SA
+Kenan Yıldız,Juventus FC,10,6.0,31,2025,SA
+Rasmus Højlund,SSC Napoli,10,3.0,27,2025,SA
+Donyell Malen,AS Roma,10,,12,2025,SA
+Hakan Çalhanoğlu,FC Internazionale Milano,9,4.0,23,2025,SA
+Giovanni Simeone,Torino FC,9,,28,2025,SA
+Nikola Krstović,Atalanta BC,9,4.0,32,2025,SA
+Rafael Leão,AC Milan,9,2.0,25,2025,SA
+Scott McTominay,SSC Napoli,8,3.0,27,2025,SA
+Gianluca Scamacca,Atalanta BC,8,1.0,25,2025,SA
+Andrea Pinamonti,US Sassuolo Calcio,8,3.0,30,2025,SA
+Christian Pulisic,AC Milan,8,3.0,26,2025,SA
+Riccardo Orsolini,Bologna FC 1909,8,1.0,32,2025,SA
+Mateo Pellegrino,Parma Calcio 1913,8,1.0,31,2025,SA
+Moise Kean,ACF Fiorentina,8,1.0,27,2025,SA
+Federico Bonazzoli,US Cremonese,7,2.0,31,2025,SA
+Domenico Berardi,US Sassuolo Calcio,7,4.0,22,2025,SA
+Santiago Castro,Bologna FC 1909,7,2.0,32,2025,SA
+Gift Orban,Hellas Verona FC,7,2.0,28,2025,SA
+Nikola Vlašić,Torino FC,7,3.0,31,2025,SA
+Rolando Mandragora,ACF Fiorentina,6,2.0,29,2025,SA
+Matias Soule,AS Roma,6,5.0,27,2025,SA
+Federico Dimarco,FC Internazionale Milano,6,13.0,32,2025,SA
+Francesco Esposito,FC Internazionale Milano,6,4.0,31,2025,SA
+Ismael Kone,US Sassuolo Calcio,6,,30,2025,SA
+Che Adams,Torino FC,6,2.0,30,2025,SA
+Sebastiano Esposito,Cagliari Calcio,6,5.0,31,2025,SA
+Stefano Moreo,AC Pisa 1909,6,1.0,32,2025,SA
+Ruslan Malinovskiy,Genoa CFC,6,3.0,31,2025,SA
+Lorenzo Colombo,Genoa CFC,6,1.0,32,2025,SA
+Martin Baturina,Como 1907,6,3.0,31,2025,SA
+Jonathan David,Juventus FC,5,4.0,32,2025,SA
+Ange-Yoan Bonny,FC Internazionale Milano,5,3.0,29,2025,SA
+Armand Lauriente,US Sassuolo Calcio,5,8.0,32,2025,SA
+Jens Odgaard,Bologna FC 1909,5,1.0,29,2025,SA
+Nicolò Zaniolo,Udinese Calcio,5,6.0,28,2025,SA
+Jamie Vardy,US Cremonese,5,2.0,26,2025,SA
+Albert Guðmundsson,ACF Fiorentina,5,4.0,29,2025,SA
+Piotr Zieliński,FC Internazionale Milano,5,2.0,32,2025,SA
+Leo Østigård,Genoa CFC,5,,28,2025,SA
+Vitinha,Genoa CFC,5,1.0,32,2025,SA
+Adrien Rabiot,AC Milan,5,4.0,23,2025,SA
+Jurgen Ekkelenkamp,Udinese Calcio,5,2.0,32,2025,SA
+Christopher Nkunku,AC Milan,5,3.0,27,2025,SA
+Weston McKennie,Juventus FC,5,4.0,31,2025,SA
+Cesare Casadei,Torino FC,5,,31,2025,SA
+Kylian Mbappé,Real Madrid CF,23,4.0,26,2025,PD
+Vedat Muriqi,RCD Mallorca,21,1.0,30,2025,PD
+Ante Budimir,CA Osasuna,16,,30,2025,PD
+Lamine Yamal,FC Barcelona,15,11.0,27,2025,PD
+Ferrán Torres,FC Barcelona,14,2.0,29,2025,PD
+Borja Iglesias,RC Celta de Vigo,12,1.0,30,2025,PD
+Mikel Oyarzabal,Real Sociedad de Fútbol,12,3.0,28,2025,PD
+Robert Lewandowski,FC Barcelona,12,1.0,28,2025,PD
+Raphinha,FC Barcelona,11,3.0,21,2025,PD
+Vinicius Junior,Real Madrid CF,11,5.0,29,2025,PD
+Lucas Boyé,Deportivo Alavés,11,1.0,26,2025,PD
+Jorge de Frutos,Rayo Vallecano de Madrid,10,1.0,29,2025,PD
+Alexander Sørloth,Club Atlético de Madrid,10,,30,2025,PD
+Hugo Duro,Valencia CF,9,,30,2025,PD
+Vladyslav Vanat,Girona FC,9,1.0,27,2025,PD
+Georges Mikautadze,Villarreal CF,9,5.0,27,2025,PD
+Alberto Moleiro,Villarreal CF,9,4.0,31,2025,PD
+Federico Viñas,Real Oviedo,9,1.0,27,2025,PD
+Toni Martínez,Deportivo Alavés,8,3.0,31,2025,PD
+Julián Álvarez,Club Atlético de Madrid,8,4.0,31,2025,PD
+Rafael Mir,Elche CF,8,,26,2025,PD
+Cucho Hernández,Real Betis Balompié,8,3.0,26,2025,PD
+Akor Adams,Sevilla FC,8,3.0,26,2025,PD
+Gerard Moreno,Villarreal CF,8,,18,2025,PD
+Gonçalo Guedes,Real Sociedad de Fútbol,8,4.0,31,2025,PD
+Carlos Espí,Levante UD,8,,27,2025,PD
+André Silva,Elche CF,7,,26,2025,PD
+Pablo Fornals,Real Betis Balompié,7,4.0,31,2025,PD
+Dani Olmo,FC Barcelona,7,8.0,26,2025,PD
+Antony,Real Betis Balompié,7,5.0,26,2025,PD
+Ferran Jutglà,RC Celta de Vigo,7,2.0,28,2025,PD
+Gorka Guruzeta,Athletic Club,7,1.0,30,2025,PD
+Karl Etta Eyong,Levante UD,6,5.0,29,2025,PD
+Pere Milla,RCD Espanyol de Barcelona,6,,28,2025,PD
+Tajon Buchanan,Villarreal CF,6,1.0,30,2025,PD
+Roberto Fernández,RCD Espanyol de Barcelona,6,1.0,31,2025,PD
+Kike García,RCD Espanyol de Barcelona,6,1.0,31,2025,PD
+Mauro Arambarri,Getafe CF,6,2.0,30,2025,PD
+Antoine Griezmann,Club Atlético de Madrid,6,1.0,29,2025,PD
+Abdessamad Ezzalzouli,Real Betis Balompié,6,5.0,22,2025,PD
+Marcus Rashford,FC Barcelona,6,6.0,29,2025,PD
+Roberto Navarro,Athletic Club,5,1.0,28,2025,PD
+Iván Romero,Levante UD,5,2.0,30,2025,PD
+Orri Oskarsson,Real Sociedad de Fútbol,5,,15,2025,PD
+Nicolas Pépé,Villarreal CF,5,4.0,31,2025,PD
+Carlos Vicente,Deportivo Alavés,5,,21,2025,PD
+Carlos Romero,RCD Espanyol de Barcelona,5,1.0,29,2025,PD
+Raúl,CA Osasuna,5,,30,2025,PD
+Fermín López,FC Barcelona,5,8.0,26,2025,PD
+Brais Méndez,Real Sociedad de Fútbol,5,2.0,27,2025,PD
+Joaquín Panichelli,RC Strasbourg Alsace,16,1.0,27,2025,FL1
+Esteban Lepaul,Stade Rennais FC 1901,16,3.0,29,2025,FL1
+Mason Greenwood,Olympique de Marseille,15,7.0,28,2025,FL1
+Odsonne Edouard,Racing Club de Lens,12,3.0,24,2025,FL1
+Folarin Balogun,AS Monaco FC,11,3.0,26,2025,FL1
+Wesley Saïd,Racing Club de Lens,10,2.0,24,2025,FL1
+Bradley Barcola,Paris Saint-Germain FC,10,1.0,24,2025,FL1
+Ousmane Dembélé,Paris Saint-Germain FC,10,5.0,17,2025,FL1
+Pavel Šulc,Olympique Lyonnais,10,3.0,24,2025,FL1
+Pierre-Emerick Aubameyang,Olympique de Marseille,9,5.0,29,2025,FL1
+Florian Thauvin,Racing Club de Lens,9,5.0,28,2025,FL1
+Lassine Sinayoko,AJ Auxerre,8,3.0,27,2025,FL1
+Ilan Kebbal,Paris FC,8,4.0,25,2025,FL1
+Corentin Tolisso,Olympique Lyonnais,8,1.0,26,2025,FL1
+Pablo Pagis,FC Lorient,8,2.0,24,2025,FL1
+Yann Gboho,Toulouse FC,8,2.0,28,2025,FL1
+Romain Del Castillo,Stade Brestois 29,8,2.0,26,2025,FL1
+Ansu Fati,AS Monaco FC,8,,21,2025,FL1
+Martial Godo,RC Strasbourg Alsace,8,1.0,25,2025,FL1
+Ahmadou Bamba Dieng,FC Lorient,8,1.0,22,2025,FL1
+Olivier Giroud,Lille OSC,7,1.0,26,2025,FL1
+Hákon Haraldsson,Lille OSC,7,1.0,27,2025,FL1
+Matias Fernandez-Pardo,Lille OSC,7,5.0,26,2025,FL1
+Ludovic Ajorque,Stade Brestois 29,7,8.0,26,2025,FL1
+Sofiane Diop,OGC Nice,7,2.0,28,2025,FL1
+Amine Gouiri,Olympique de Marseille,7,3.0,19,2025,FL1
+Breel Embolo,Stade Rennais FC 1901,7,3.0,26,2025,FL1
+Maghnes Akliouche,AS Monaco FC,6,3.0,27,2025,FL1
+Issa Soumaré,Le Havre AC,6,3.0,29,2025,FL1
+Gauthier Hein,FC Metz,6,5.0,24,2025,FL1
+Igor Paixão,Olympique de Marseille,6,5.0,26,2025,FL1
+Gonçalo Ramos,Paris Saint-Germain FC,6,1.0,27,2025,FL1
+Ludovic Blas,Stade Rennais FC 1901,5,3.0,28,2025,FL1
+Kamory Doumbia,Stade Brestois 29,5,3.0,20,2025,FL1
+Rayan Fofana,Racing Club de Lens,5,,28,2025,FL1
+Frank Magri,Toulouse FC,5,1.0,17,2025,FL1
+Hamza Igamane,Lille OSC,5,1.0,13,2025,FL1
+Joao Neves,Paris Saint-Germain FC,5,1.0,16,2025,FL1
+Rémy Labeau Lascary,Stade Brestois 29,5,1.0,22,2025,FL1
+Matthis Abline,FC Nantes,5,2.0,27,2025,FL1
+Desire Doue,Paris Saint-Germain FC,5,2.0,18,2025,FL1
+Aleksandr Golovin,AS Monaco FC,5,5.0,23,2025,FL1
+Rassoul N'Diaye,Le Havre AC,4,4.0,29,2025,FL1
+Robinio Vaz,Olympique de Marseille,4,2.0,16,2025,FL1
+Sambou Soumano,FC Lorient,4,1.0,28,2025,FL1
+Aiyegun Tosin,FC Lorient,4,,25,2025,FL1
+Emanuel Emegha,RC Strasbourg Alsace,4,2.0,8,2025,FL1
+Prosper Peter,Angers SCO,4,,26,2025,FL1
+Habib Diallo,FC Metz,4,1.0,22,2025,FL1
+Aron Dönnum,Toulouse FC,4,3.0,24,2025,FL1
+Mohamed Salah,Liverpool FC,29,17.0,38,2024,PL
+Alexander Isak,Newcastle United FC,23,6.0,34,2024,PL
+Erling Haaland,Manchester City FC,22,3.0,32,2024,PL
+Chris Wood,Nottingham Forest FC,20,3.0,36,2024,PL
+Bryan Mbeumo,Brentford FC,20,8.0,38,2024,PL
+Yoane Wissa,Brentford FC,18,4.0,35,2024,PL
+Ollie Watkins,Aston Villa FC,16,7.0,38,2024,PL
+Matheus Cunha,Wolverhampton Wanderers FC,15,7.0,33,2024,PL
+Cole Palmer,Chelsea FC,15,8.0,37,2024,PL
+Jørgen Strand Larsen,Wolverhampton Wanderers FC,14,4.0,35,2024,PL
+Jean-Philippe Mateta,Crystal Palace FC,14,2.0,37,2024,PL
+Jarrod Bowen,West Ham United FC,13,10.0,34,2024,PL
+Luis Díaz,Liverpool FC,13,6.0,38,2024,PL
+Liam Delap,Ipswich Town FC,12,2.0,37,2024,PL
+Raúl Jiménez,Fulham FC,12,3.0,38,2024,PL
+Justin Kluivert,AFC Bournemouth,12,6.0,34,2024,PL
+Antoine Semenyo,AFC Bournemouth,11,4.0,37,2024,PL
+Brennan Johnson,Tottenham Hotspur FC,11,4.0,35,2024,PL
+Kevin Schade,Brentford FC,11,2.0,38,2024,PL
+Kaoru Mitoma,Brighton & Hove Albion FC,10,5.0,36,2024,PL
+Danny Welbeck,Brighton & Hove Albion FC,10,5.0,30,2024,PL
+João Pedro,Brighton & Hove Albion FC,10,6.0,27,2024,PL
+Nicolas Jackson,Chelsea FC,10,5.0,31,2024,PL
+Evanilson,AFC Bournemouth,10,2.0,32,2024,PL
+Cody Gakpo,Liverpool FC,10,5.0,35,2024,PL
+Kai Havertz,Arsenal FC,9,3.0,24,2024,PL
+Jamie Vardy,Leicester City FC,9,4.0,35,2024,PL
+Tomáš Souček,West Ham United FC,9,1.0,36,2024,PL
+Alex Iwobi,Fulham FC,9,6.0,38,2024,PL
+Leandro Trossard,Arsenal FC,9,7.0,38,2024,PL
+Harvey Barnes,Newcastle United FC,9,4.0,34,2024,PL
+Iliman Ndiaye,Everton FC,9,,33,2024,PL
+Dominic Solanke,Tottenham Hotspur FC,9,4.0,28,2024,PL
+James Maddison,Tottenham Hotspur FC,9,8.0,32,2024,PL
+Amad Diallo,Manchester United FC,8,6.0,28,2024,PL
+Eberechi Eze,Crystal Palace FC,8,8.0,34,2024,PL
+Martinelli,Arsenal FC,8,4.0,35,2024,PL
+Morgan Rogers,Aston Villa FC,8,10.0,37,2024,PL
+Rodrigo Muniz,Fulham FC,8,,32,2024,PL
+Beto,Everton FC,8,,38,2024,PL
+Bruno Fernandes,Manchester United FC,8,10.0,37,2024,PL
+Ismaïla Sarr,Crystal Palace FC,8,6.0,38,2024,PL
+Jacob Murphy,Newcastle United FC,8,12.0,37,2024,PL
+Jhon Durán,Aston Villa FC,7,,21,2024,PL
+Morgan Gibbs-White,Nottingham Forest FC,7,9.0,34,2024,PL
+Heung-min Son,Tottenham Hotspur FC,7,9.0,30,2024,PL
+Noni Madueke,Chelsea FC,7,3.0,33,2024,PL
+Dejan Kulusevski,Tottenham Hotspur FC,7,4.0,32,2024,PL
+Dango Ouattara,AFC Bournemouth,7,4.0,32,2024,PL
+Mikel Merino,Arsenal FC,7,2.0,28,2024,PL
+Harry Kane,FC Bayern München,26,9.0,31,2024,BL1
+Sehrou Guirassy,Borussia Dortmund,21,6.0,30,2024,BL1
+Patrik Schick,Bayer 04 Leverkusen,21,1.0,33,2024,BL1
+Jonathan Burkardt,1. FSV Mainz 05,18,2.0,29,2024,BL1
+Tim Kleindienst,Borussia Mönchengladbach,16,7.0,31,2024,BL1
+Ermedin Demirovic,VfB Stuttgart,15,2.0,34,2024,BL1
+Hugo Ekitike,Eintracht Frankfurt,15,9.0,33,2024,BL1
+Omar Marmoush,Eintracht Frankfurt,15,8.0,17,2024,BL1
+Benjamin Šeško,RB Leipzig,13,4.0,33,2024,BL1
+Jamal Musiala,FC Bayern München,12,3.0,25,2024,BL1
+Michael Olise,FC Bayern München,12,18.0,34,2024,BL1
+Nick Woltemade,VfB Stuttgart,12,2.0,33,2024,BL1
+Andrej Kramarić,TSG 1899 Hoffenheim,11,8.0,32,2024,BL1
+Shuto Machino,Holstein Kiel,11,4.0,34,2024,BL1
+Alassane Pléa,Borussia Mönchengladbach,11,6.0,32,2024,BL1
+Leroy Sané,FC Bayern München,11,6.0,32,2024,BL1
+Florian Wirtz,Bayer 04 Leverkusen,10,13.0,31,2024,BL1
+Ritsu Doan,SC Freiburg,10,8.0,34,2024,BL1
+Xavi Simons,RB Leipzig,10,8.0,25,2024,BL1
+Mohammed Amoura,VfL Wolfsburg,10,8.0,31,2024,BL1
+Jens Stage,SV Werder Bremen,10,5.0,29,2024,BL1
+Paul Nebel,1. FSV Mainz 05,10,5.0,33,2024,BL1
+Benedict Hollerbach,1. FC Union Berlin,9,2.0,34,2024,BL1
+Loïs Openda,RB Leipzig,9,8.0,33,2024,BL1
+Myron Boadu,VfL Bochum 1848,9,1.0,22,2024,BL1
+Deniz Undav,VfB Stuttgart,9,4.0,27,2024,BL1
+Jonas Wind,VfL Wolfsburg,9,3.0,33,2024,BL1
+Alexis Claude Maurice,FC Augsburg,9,3.0,31,2024,BL1
+Jamie Bynoe-Gittens,Borussia Dortmund,8,3.0,34,2024,BL1
+Victor Boniface,Bayer 04 Leverkusen,8,1.0,24,2024,BL1
+Marvin Ducksch,SV Werder Bremen,8,11.0,32,2024,BL1
+Vincenzo Grifo,SC Freiburg,8,10.0,34,2024,BL1
+Adam Hložek,TSG 1899 Hoffenheim,8,4.0,27,2024,BL1
+Maximilian Beier,Borussia Dortmund,8,7.0,30,2024,BL1
+Phil Harres,Holstein Kiel,8,1.0,27,2024,BL1
+Alexander Bernhardsson,Holstein Kiel,7,2.0,20,2024,BL1
+Samuel Essende,FC Augsburg,7,2.0,31,2024,BL1
+Nadiem Amiri,1. FSV Mainz 05,7,5.0,30,2024,BL1
+Serge Gnabry,FC Bayern München,7,5.0,29,2024,BL1
+Karim Adeyemi,Borussia Dortmund,7,7.0,25,2024,BL1
+Marvin Pieringer,1. FC Heidenheim 1846,7,6.0,31,2024,BL1
+Phillip Tietz,FC Augsburg,7,3.0,34,2024,BL1
+Jae-sung Lee,1. FSV Mainz 05,7,7.0,33,2024,BL1
+Marius Bülter,TSG 1899 Hoffenheim,7,3.0,25,2024,BL1
+Andrej Ilic,1. FC Union Berlin,7,,17,2024,BL1
+Enzo Millot,VfB Stuttgart,6,5.0,31,2024,BL1
+Marco Grüll,SV Werder Bremen,6,1.0,31,2024,BL1
+Morgan Guilavogui,FC St. Pauli 1910,6,1.0,25,2024,BL1
+Lucas Höler,SC Freiburg,6,4.0,33,2024,BL1
+Steven Skrzybski,Holstein Kiel,6,4.0,24,2024,BL1
+Mateo Retegui,Atalanta BC,25,7.0,36,2024,SA
+Moise Kean,ACF Fiorentina,19,2.0,32,2024,SA
+Riccardo Orsolini,Bologna FC 1909,15,4.0,32,2024,SA
+Ademola Lookman,Atalanta BC,15,4.0,33,2024,SA
+Marcus Thuram-Ulien,FC Internazionale Milano,14,5.0,35,2024,SA
+Romelu Lukaku,SSC Napoli,14,10.0,36,2024,SA
+Lorenzo Lucca,Udinese Calcio,12,1.0,33,2024,SA
+Artem Dovbyk,AS Roma,12,3.0,36,2024,SA
+Lautaro Martínez,FC Internazionale Milano,12,3.0,32,2024,SA
+Scott McTominay,SSC Napoli,12,3.0,34,2024,SA
+Christian Pulisic,AC Milan,11,9.0,34,2024,SA
+Nikola Krstović,US Lecce,11,5.0,36,2024,SA
+Valentín Castellanos,SS Lazio,10,3.0,31,2024,SA
+Andrea Pinamonti,Genoa CFC,10,1.0,37,2024,SA
+Roberto Piccoli,Cagliari Calcio,10,1.0,36,2024,SA
+Dušan Vlahović,Juventus FC,10,4.0,32,2024,SA
+Pedro,SS Lazio,10,1.0,36,2024,SA
+Tijjani Reijnders,AC Milan,10,3.0,37,2024,SA
+Che Adams,Torino FC,9,3.0,37,2024,SA
+Boulaye Dia,SS Lazio,9,3.0,37,2024,SA
+Mattia Zaccagni,SS Lazio,8,6.0,34,2024,SA
+Florian Thauvin,Udinese Calcio,8,3.0,25,2024,SA
+Rafael Leão,AC Milan,8,8.0,36,2024,SA
+Santiago Castro,Bologna FC 1909,8,4.0,36,2024,SA
+Sebastiano Esposito,Empoli FC,8,,33,2024,SA
+Dan Ndoye,Bologna FC 1909,8,4.0,31,2024,SA
+Assane Diao,Como 1907,8,1.0,15,2024,SA
+Randal Kolo Muani,Juventus FC,8,1.0,17,2024,SA
+Patrick Cutrone,Como 1907,7,4.0,38,2024,SA
+Charles De Ketelaere,Atalanta BC,7,6.0,36,2024,SA
+Denzel Dumfries,FC Internazionale Milano,7,3.0,33,2024,SA
+Kenan Yıldız,Juventus FC,7,4.0,36,2024,SA
+Alexis Saelemaekers,AS Roma,7,3.0,28,2024,SA
+Lorenzo Colombo,Empoli FC,6,2.0,36,2024,SA
+Ange-Yoan Bonny,Parma Calcio 1913,6,4.0,37,2024,SA
+André Zambo Anguissa,SSC Napoli,6,5.0,35,2024,SA
+Daniel Maldini,Atalanta BC,6,,32,2024,SA
+Casper Tengstedt,Hellas Verona FC,6,2.0,29,2024,SA
+Joel Pohjanpalo,Venezia FC,6,,20,2024,SA
+Albert Guðmundsson,ACF Fiorentina,6,1.0,27,2024,SA
+Paulo Dybala,AS Roma,6,3.0,31,2024,SA
+Gabriel Strefezza,Como 1907,6,4.0,37,2024,SA
+Nadir Zortea,Cagliari Calcio,6,2.0,35,2024,SA
+Nico Paz,Como 1907,6,8.0,36,2024,SA
+Jens Odgaard,Bologna FC 1909,6,2.0,31,2024,SA
+Giacomo Raspadori,SSC Napoli,6,1.0,38,2024,SA
+Álvaro Morata,AC Milan,5,,16,2024,SA
+Daniel Mosquera,Hellas Verona FC,5,1.0,37,2024,SA
+Tim Weah,Juventus FC,5,3.0,32,2024,SA
+Hakan Çalhanoğlu,FC Internazionale Milano,5,6.0,30,2024,SA
+Kylian Mbappé,Real Madrid CF,31,3.0,34,2024,PD
+Robert Lewandowski,FC Barcelona,27,2.0,36,2024,PD
+Ante Budimir,CA Osasuna,21,4.0,38,2024,PD
+Alexander Sørloth,Club Atlético de Madrid,20,2.0,37,2024,PD
+Ayoze Pérez,Villarreal CF,19,1.0,30,2024,PD
+Raphinha,FC Barcelona,18,11.0,37,2024,PD
+Julián Álvarez,Club Atlético de Madrid,17,4.0,37,2024,PD
+Oihan Sancet,Athletic Club,15,1.0,30,2024,PD
+Kike García,Deportivo Alavés,13,,37,2024,PD
+Javi Puado,RCD Espanyol de Barcelona,12,4.0,35,2024,PD
+Hugo Duro,Valencia CF,11,2.0,33,2024,PD
+Dodi Lukebakio,Sevilla FC,11,2.0,38,2024,PD
+Borja Iglesias,RC Celta de Vigo,11,2.0,38,2024,PD
+Thierno Barry,Villarreal CF,11,5.0,35,2024,PD
+Cristhian Stuani,Girona FC,11,1.0,38,2024,PD
+Vinicius Junior,Real Madrid CF,11,9.0,30,2024,PD
+Iago Aspas,RC Celta de Vigo,10,6.0,33,2024,PD
+Dani Olmo,FC Barcelona,10,3.0,28,2024,PD
+Ferrán Torres,FC Barcelona,10,5.0,29,2024,PD
+Mauro Arambarri,Getafe CF,10,,35,2024,PD
+Fábio Silva,UD Las Palmas,10,3.0,24,2024,PD
+Sandro,UD Las Palmas,9,3.0,32,2024,PD
+Lamine Yamal,FC Barcelona,9,13.0,35,2024,PD
+Mikel Oyarzabal,Real Sociedad de Fútbol,9,2.0,37,2024,PD
+Jude Bellingham,Real Madrid CF,9,10.0,31,2024,PD
+Isco,Real Betis Balompié,9,7.0,22,2024,PD
+Diego López,Valencia CF,8,4.0,37,2024,PD
+Antoine Griezmann,Club Atlético de Madrid,8,7.0,38,2024,PD
+Giovani Lo Celso,Real Betis Balompié,8,3.0,25,2024,PD
+Dani Raba,CD Leganés,8,6.0,34,2024,PD
+Vedat Muriqi,RCD Mallorca,7,2.0,29,2024,PD
+Gorka Guruzeta,Athletic Club,7,2.0,37,2024,PD
+Cyle Larin,RCD Mallorca,7,2.0,36,2024,PD
+Álex Baena,Villarreal CF,7,10.0,32,2024,PD
+Jorge de Frutos,Rayo Vallecano de Madrid,6,3.0,36,2024,PD
+Rodrygo,Real Madrid CF,6,4.0,31,2024,PD
+Federico Valverde,Real Madrid CF,6,4.0,37,2024,PD
+Alberto Moleiro,UD Las Palmas,6,2.0,36,2024,PD
+Iñaki Williams,Athletic Club,6,9.0,35,2024,PD
+Álex Berenguer,Athletic Club,6,7.0,37,2024,PD
+Roberto Fernández,RCD Espanyol de Barcelona,6,,19,2024,PD
+Fermín López,FC Barcelona,6,5.0,31,2024,PD
+Juan Cruz,CD Leganés,5,4.0,38,2024,PD
+Rubén García,CA Osasuna,5,5.0,36,2024,PD
+Takefusa Kubo,Real Sociedad de Fútbol,5,,37,2024,PD
+Carlos Vicente,Deportivo Alavés,5,5.0,38,2024,PD
+Nico Williams,Athletic Club,5,5.0,29,2024,PD
+Aimar Oroz,CA Osasuna,5,4.0,37,2024,PD
+Borja Mayoral,Getafe CF,5,1.0,25,2024,PD
+Mamadou Sylla,Real Valladolid CF,5,2.0,35,2024,PD
+Mason Greenwood,Olympique de Marseille,22,5.0,34,2024,FL1
+Ousmane Dembélé,Paris Saint-Germain FC,21,7.0,30,2024,FL1
+Arnaud Kalimuendo,Stade Rennais FC 1901,17,3.0,33,2024,FL1
+Jonathan David,Lille OSC,16,6.0,32,2024,FL1
+Alexandre Lacazette,Olympique Lyonnais,15,2.0,30,2024,FL1
+Bradley Barcola,Paris Saint-Germain FC,14,11.0,34,2024,FL1
+Emanuel Emegha,RC Strasbourg Alsace,14,3.0,27,2024,FL1
+Amine Gouiri,Olympique de Marseille,13,5.0,33,2024,FL1
+Ludovic Ajorque,Stade Brestois 29,13,2.0,31,2024,FL1
+Mika Biereth,AS Monaco FC,13,2.0,17,2024,FL1
+Evann Guessand,OGC Nice,12,7.0,34,2024,FL1
+Lucas Stassin,AS Saint-Étienne,12,4.0,28,2024,FL1
+Keito Nakamura,Stade de Reims,11,2.0,33,2024,FL1
+Georges Mikautadze,Olympique Lyonnais,11,6.0,34,2024,FL1
+Gaëtan Laborde,OGC Nice,11,5.0,28,2024,FL1
+Abdoulaye Touré,Le Havre AC,10,1.0,28,2024,FL1
+Andrey Santos,RC Strasbourg Alsace,10,3.0,32,2024,FL1
+Gaëtan Perrin,AJ Auxerre,10,10.0,34,2024,FL1
+Hamed Traoré,AJ Auxerre,10,2.0,26,2024,FL1
+Gonçalo Ramos,Paris Saint-Germain FC,10,3.0,22,2024,FL1
+Matthis Abline,FC Nantes,9,1.0,34,2024,FL1
+Zuriko Davitashvili,AS Saint-Étienne,9,8.0,33,2024,FL1
+Esteban Lepaul,Angers SCO,9,,32,2024,FL1
+Adrien Rabiot,Olympique de Marseille,9,5.0,29,2024,FL1
+Moses Simon,FC Nantes,8,10.0,32,2024,FL1
+Rayan Cherki,Olympique Lyonnais,8,10.0,30,2024,FL1
+Neil El Aynaoui,Racing Club de Lens,8,1.0,25,2024,FL1
+Luis Henrique,Olympique de Marseille,7,6.0,34,2024,FL1
+Corentin Tolisso,Olympique Lyonnais,7,5.0,33,2024,FL1
+Denis Zakaria,AS Monaco FC,7,4.0,27,2024,FL1
+Zakaria Aboukhlal,Toulouse FC,7,2.0,26,2024,FL1
+Kang-in Lee,Paris Saint-Germain FC,6,6.0,33,2024,FL1
+Takumi Minamino,AS Monaco FC,6,3.0,31,2024,FL1
+Eliesse Ben Seghir,AS Monaco FC,6,3.0,34,2024,FL1
+Ludovic Blas,Stade Rennais FC 1901,6,7.0,29,2024,FL1
+Sebastian Nanasi,RC Strasbourg Alsace,6,4.0,32,2024,FL1
+Romain Del Castillo,Stade Brestois 29,6,4.0,27,2024,FL1
+Himad Abdelli,Angers SCO,6,1.0,32,2024,FL1
+Sofiane Diop,OGC Nice,6,4.0,29,2024,FL1
+M'Bala Nzola,Racing Club de Lens,6,1.0,22,2024,FL1
+Jubal Júnior,AJ Auxerre,6,,31,2024,FL1
+Joshua King,Toulouse FC,6,3.0,28,2024,FL1
+Breel Embolo,AS Monaco FC,6,2.0,34,2024,FL1
+Dilane Bakwa,RC Strasbourg Alsace,6,9.0,30,2024,FL1
+Abdallah Sima,Stade Brestois 29,6,2.0,29,2024,FL1
+Desire Doue,Paris Saint-Germain FC,6,5.0,32,2024,FL1
+Mahdi Camara,Stade Brestois 29,5,3.0,34,2024,FL1
+Mostafa Mohamed,FC Nantes,5,,30,2024,FL1
+Vitinha,Paris Saint-Germain FC,5,1.0,31,2024,FL1
+Douglas Augusto,FC Nantes,5,,30,2024,FL1
+Erling Haaland,Manchester City FC,27,6.0,32,2023,PL
+Cole Palmer,Chelsea FC,22,12.0,36,2023,PL
+Alexander Isak,Newcastle United FC,21,2.0,31,2023,PL
+Dominic Solanke,AFC Bournemouth,19,3.0,38,2023,PL
+Phil Foden,Manchester City FC,19,8.0,37,2023,PL
+Ollie Watkins,Aston Villa FC,19,13.0,37,2023,PL
+Mohamed Salah,Liverpool FC,18,11.0,32,2023,PL
+Heung-min Son,Tottenham Hotspur FC,17,10.0,35,2023,PL
+Bukayo Saka,Arsenal FC,16,9.0,35,2023,PL
+Jarrod Bowen,West Ham United FC,16,6.0,34,2023,PL
+Jean-Philippe Mateta,Crystal Palace FC,16,5.0,37,2023,PL
+Chris Wood,Nottingham Forest FC,14,1.0,31,2023,PL
+Nicolas Jackson,Chelsea FC,14,5.0,35,2023,PL
+Kai Havertz,Arsenal FC,13,8.0,37,2023,PL
+Yoane Wissa,Brentford FC,12,3.0,34,2023,PL
+Hwang Heechan,Wolverhampton Wanderers FC,12,3.0,29,2023,PL
+Matheus Cunha,Wolverhampton Wanderers FC,12,7.0,32,2023,PL
+Carlton Morris,Luton Town FC,11,4.0,38,2023,PL
+Julián Álvarez,Manchester City FC,11,8.0,38,2023,PL
+Anthony Gordon,Newcastle United FC,11,9.0,35,2023,PL
+Darwin Núñez,Liverpool FC,11,8.0,40,2023,PL
+Eberechi Eze,Crystal Palace FC,11,4.0,27,2023,PL
+Richarlison,Tottenham Hotspur FC,11,5.0,29,2023,PL
+Leandro Trossard,Arsenal FC,11,1.0,37,2023,PL
+Diogo Jota,Liverpool FC,10,4.0,22,2023,PL
+Leon Bailey,Aston Villa FC,10,10.0,36,2023,PL
+Bruno Fernandes,Manchester United FC,10,9.0,35,2023,PL
+Elijah Adebayo,Luton Town FC,10,,27,2023,PL
+Michael Olise,Crystal Palace FC,10,5.0,19,2023,PL
+Rasmus Højlund,Manchester United FC,10,2.0,30,2023,PL
+João Pedro,Brighton & Hove Albion FC,9,3.0,31,2023,PL
+Callum Wilson,Newcastle United FC,9,1.0,20,2023,PL
+Bryan Mbeumo,Brentford FC,9,6.0,25,2023,PL
+Douglas Luiz,Aston Villa FC,9,5.0,35,2023,PL
+Rodrigo Muniz,Fulham FC,9,2.0,33,2023,PL
+Rodri,Manchester City FC,8,9.0,35,2023,PL
+Luis Díaz,Liverpool FC,8,4.0,37,2023,PL
+Antoine Semenyo,AFC Bournemouth,8,2.0,36,2023,PL
+Martin Ødegaard,Arsenal FC,8,11.0,36,2023,PL
+Raheem Sterling,Chelsea FC,8,5.0,34,2023,PL
+Dejan Kulusevski,Tottenham Hotspur FC,8,4.0,36,2023,PL
+Cody Gakpo,Liverpool FC,8,5.0,35,2023,PL
+Callum Hudson-Odoi,Nottingham Forest FC,8,1.0,29,2023,PL
+Mohammed Kudus,West Ham United FC,8,7.0,33,2023,PL
+Odsonne Edouard,Crystal Palace FC,7,,33,2023,PL
+James Ward-Prowse,West Ham United FC,7,7.0,37,2023,PL
+Abdoulaye Doucouré,Everton FC,7,4.0,32,2023,PL
+Marcus Rashford,Manchester United FC,7,3.0,33,2023,PL
+Declan Rice,Arsenal FC,7,7.0,38,2023,PL
+Dominic Calvert-Lewin,Everton FC,7,2.0,32,2023,PL
+Harry Kane,FC Bayern München,36,8.0,32,2023,BL1
+Sehrou Guirassy,VfB Stuttgart,28,4.0,28,2023,BL1
+Loïs Openda,RB Leipzig,24,8.0,34,2023,BL1
+Deniz Undav,VfB Stuttgart,18,10.0,30,2023,BL1
+Maximilian Beier,TSG 1899 Hoffenheim,16,3.0,33,2023,BL1
+Andrej Kramarić,TSG 1899 Hoffenheim,15,6.0,31,2023,BL1
+Ermedin Demirovic,FC Augsburg,15,10.0,33,2023,BL1
+Victor Boniface,Bayer 04 Leverkusen,14,9.0,23,2023,BL1
+Benjamin Šeško,RB Leipzig,14,2.0,33,2023,BL1
+Donyell Malen,Borussia Dortmund,13,3.0,29,2023,BL1
+Omar Marmoush,Eintracht Frankfurt,12,8.0,29,2023,BL1
+Tim Kleindienst,1. FC Heidenheim 1846,12,4.0,33,2023,BL1
+Marvin Ducksch,SV Werder Bremen,12,9.0,33,2023,BL1
+Niclas Füllkrug,Borussia Dortmund,12,8.0,33,2023,BL1
+Florian Wirtz,Bayer 04 Leverkusen,11,11.0,32,2023,BL1
+Jonas Wind,VfL Wolfsburg,11,7.0,34,2023,BL1
+Eren Dinkci,1. FC Heidenheim 1846,10,4.0,33,2023,BL1
+Alejandro Grimaldo,Bayer 04 Leverkusen,10,14.0,33,2023,BL1
+Jamal Musiala,FC Bayern München,10,6.0,25,2023,BL1
+Robin Hack,Borussia Mönchengladbach,10,3.0,32,2023,BL1
+Jeremie Frimpong,Bayer 04 Leverkusen,9,8.0,33,2023,BL1
+Leroy Sané,FC Bayern München,8,11.0,27,2023,BL1
+Xavi Simons,RB Leipzig,8,13.0,32,2023,BL1
+Jan-Niklas Beste,1. FC Heidenheim 1846,8,13.0,31,2023,BL1
+Chris Führich,VfB Stuttgart,8,7.0,34,2023,BL1
+Tim Skarke,SV Darmstadt 98,8,,30,2023,BL1
+Vincenzo Grifo,SC Freiburg,8,8.0,34,2023,BL1
+Phillip Tietz,FC Augsburg,8,4.0,34,2023,BL1
+Jonathan Burkardt,1. FSV Mainz 05,8,2.0,21,2023,BL1
+Mathys Tel,FC Bayern München,7,5.0,34,2023,BL1
+Kevin Stöger,VfL Bochum 1848,7,9.0,32,2023,BL1
+Julian Brandt,Borussia Dortmund,7,12.0,32,2023,BL1
+Lucas Höler,SC Freiburg,7,3.0,33,2023,BL1
+Alassane Pléa,Borussia Mönchengladbach,7,6.0,27,2023,BL1
+Ansgar Knauff,Eintracht Frankfurt,7,3.0,32,2023,BL1
+Ritsu Doan,SC Freiburg,7,2.0,30,2023,BL1
+Wout Weghorst,TSG 1899 Hoffenheim,7,3.0,29,2023,BL1
+Michael Gregoritsch,SC Freiburg,7,4.0,32,2023,BL1
+Ihlas Bebou,TSG 1899 Hoffenheim,7,5.0,34,2023,BL1
+Patrik Schick,Bayer 04 Leverkusen,7,3.0,24,2023,BL1
+Robin Gosens,1. FC Union Berlin,6,3.0,30,2023,BL1
+Jae-sung Lee,1. FSV Mainz 05,6,3.0,29,2023,BL1
+Justin Njinmah,SV Werder Bremen,6,2.0,26,2023,BL1
+Takuma Asano,VfL Bochum 1848,6,1.0,29,2023,BL1
+Leon Goretzka,FC Bayern München,6,7.0,30,2023,BL1
+Marco Reus,Borussia Dortmund,6,7.0,32,2023,BL1
+Davie Selke,1. FC Köln,6,,20,2023,BL1
+Rocco Reitz,Borussia Mönchengladbach,6,3.0,34,2023,BL1
+Nathan N'Goumou,Borussia Mönchengladbach,5,2.0,34,2023,BL1
+Silas Katompa Mvumpa,VfB Stuttgart,5,4.0,28,2023,BL1
+Lautaro Martínez,FC Internazionale Milano,24,5.0,35,2023,SA
+Dušan Vlahović,Juventus FC,16,3.0,33,2023,SA
+Victor Osimhen,SSC Napoli,15,4.0,26,2023,SA
+Olivier Giroud,AC Milan,15,7.0,36,2023,SA
+Albert Guðmundsson,Genoa CFC,14,5.0,35,2023,SA
+Duván Zapata,Torino FC,13,5.0,37,2023,SA
+Marcus Thuram-Ulien,FC Internazionale Milano,13,8.0,36,2023,SA
+Hakan Çalhanoğlu,FC Internazionale Milano,13,3.0,35,2023,SA
+Paulo Dybala,AS Roma,13,8.0,29,2023,SA
+Romelu Lukaku,AS Roma,13,3.0,32,2023,SA
+Nicolás González,ACF Fiorentina,12,2.0,30,2023,SA
+Christian Pulisic,AC Milan,12,6.0,36,2023,SA
+Joshua Zirkzee,Bologna FC 1909,12,6.0,35,2023,SA
+Gianluca Scamacca,Atalanta BC,12,6.0,33,2023,SA
+Teun Koopmeiners,Atalanta BC,12,5.0,34,2023,SA
+Andrea Pinamonti,US Sassuolo Calcio,11,1.0,38,2023,SA
+Ademola Lookman,Atalanta BC,11,7.0,32,2023,SA
+Khvicha Kvaratskhelia,SSC Napoli,11,5.0,34,2023,SA
+Matias Soule,Frosinone Calcio,11,3.0,38,2023,SA
+Charles De Ketelaere,Atalanta BC,10,8.0,36,2023,SA
+Riccardo Orsolini,Bologna FC 1909,10,2.0,34,2023,SA
+Federico Chiesa,Juventus FC,9,2.0,34,2023,SA
+Domenico Berardi,US Sassuolo Calcio,9,3.0,18,2023,SA
+Rafael Leão,AC Milan,9,10.0,34,2023,SA
+Milan Đurić,AC Monza,9,2.0,37,2023,SA
+Matteo Politano,SSC Napoli,8,7.0,37,2023,SA
+Giacomo Bonaventura,ACF Fiorentina,8,3.0,35,2023,SA
+Andrea Colpani,AC Monza,8,4.0,38,2023,SA
+Cyril Ngonge,SSC Napoli,8,2.0,33,2023,SA
+Lorenzo Lucca,Udinese Calcio,8,5.0,37,2023,SA
+Lorenzo Pellegrini,AS Roma,8,2.0,31,2023,SA
+Ciro Immobile,SS Lazio,7,1.0,32,2023,SA
+Nikola Krstović,US Lecce,7,1.0,37,2023,SA
+Mateo Retegui,Genoa CFC,7,2.0,30,2023,SA
+Walid Cheddira,Frosinone Calcio,7,1.0,37,2023,SA
+Andrea Belotti,ACF Fiorentina,6,4.0,37,2023,SA
+Antonio Candreva,US Salernitana 1919,6,7.0,34,2023,SA
+Lewis Ferguson,Bologna FC 1909,6,3.0,31,2023,SA
+Lazar Samardzic,Udinese Calcio,6,2.0,38,2023,SA
+Éderson,Atalanta BC,6,1.0,37,2023,SA
+Davide Frattesi,FC Internazionale Milano,6,3.0,36,2023,SA
+Mario Pašalić,Atalanta BC,6,5.0,38,2023,SA
+Noah Okafor,AC Milan,6,2.0,32,2023,SA
+Ruben Loftus-Cheek,AC Milan,6,1.0,31,2023,SA
+Matías Vecino,SS Lazio,6,1.0,36,2023,SA
+Mattia Zaccagni,SS Lazio,6,1.0,28,2023,SA
+Matteo Pessina,AC Monza,6,2.0,37,2023,SA
+Kristian Thorstvedt,US Sassuolo Calcio,6,1.0,37,2023,SA
+Luka Jović,AC Milan,6,1.0,31,2023,SA
+Lucas Beltrán,ACF Fiorentina,6,1.0,35,2023,SA
+Artem Dovbyk,Girona FC,24,8.0,36,2023,PD
+Alexander Sørloth,Villarreal CF,23,6.0,35,2023,PD
+Jude Bellingham,Real Madrid CF,19,6.0,32,2023,PD
+Robert Lewandowski,FC Barcelona,19,8.0,35,2023,PD
+Ante Budimir,CA Osasuna,17,2.0,34,2023,PD
+Youssef En-Nesyri,Sevilla FC,16,2.0,33,2023,PD
+Antoine Griezmann,Club Atlético de Madrid,16,6.0,34,2023,PD
+Álvaro Morata,Club Atlético de Madrid,15,2.0,34,2023,PD
+Vinicius Junior,Real Madrid CF,15,6.0,29,2023,PD
+Borja Mayoral,Getafe CF,15,1.0,27,2023,PD
+Gorka Guruzeta,Athletic Club,14,5.0,33,2023,PD
+Hugo Duro,Valencia CF,13,2.0,37,2023,PD
+Jørgen Strand Larsen,RC Celta de Vigo,13,3.0,37,2023,PD
+Iñaki Williams,Athletic Club,12,4.0,34,2023,PD
+Myrto Uzuni,Granada CF,11,1.0,35,2023,PD
+Rodrygo,Real Madrid CF,10,5.0,37,2023,PD
+Willian José,Real Betis Balompié,10,4.0,35,2023,PD
+Gerard Moreno,Villarreal CF,10,7.0,32,2023,PD
+Joselu,Real Madrid CF,10,2.0,36,2023,PD
+Ayoze Pérez,Real Betis Balompié,9,2.0,32,2023,PD
+Samu Omorodion,Deportivo Alavés,9,1.0,37,2023,PD
+Sergio Arribas,UD Almería,9,3.0,38,2023,PD
+Ángel Correa,Club Atlético de Madrid,9,3.0,35,2023,PD
+Sávio,Girona FC,9,10.0,37,2023,PD
+Mikel Oyarzabal,Real Sociedad de Fútbol,9,3.0,34,2023,PD
+Iago Aspas,RC Celta de Vigo,9,10.0,36,2023,PD
+Cristhian Stuani,Girona FC,8,3.0,32,2023,PD
+Isco,Real Betis Balompié,8,6.0,29,2023,PD
+Viktor Tsyhankov,Girona FC,8,7.0,30,2023,PD
+Fermín López,FC Barcelona,8,,37,2023,PD
+Brahim Diaz,Real Madrid CF,8,5.0,38,2023,PD
+Mason Greenwood,Getafe CF,8,7.0,33,2023,PD
+Takefusa Kubo,Real Sociedad de Fútbol,7,4.0,34,2023,PD
+Pepelu,Valencia CF,7,1.0,37,2023,PD
+Ferrán Torres,FC Barcelona,7,3.0,31,2023,PD
+Portu,Girona FC,7,5.0,39,2023,PD
+Vedat Muriqi,RCD Mallorca,7,2.0,29,2023,PD
+João Félix,FC Barcelona,7,4.0,33,2023,PD
+Anastasios Douvikas,RC Celta de Vigo,7,1.0,36,2023,PD
+Álex Berenguer,Athletic Club,7,3.0,36,2023,PD
+José Morales,Villarreal CF,7,,38,2023,PD
+Marcos Llorente,Club Atlético de Madrid,6,4.0,37,2023,PD
+Álvaro García,Rayo Vallecano de Madrid,6,1.0,32,2023,PD
+Abdón Prats,RCD Mallorca,6,1.0,38,2023,PD
+Bryan Zaragoza,Granada CF,6,2.0,21,2023,PD
+Lucas Boyé,Granada CF,6,3.0,31,2023,PD
+Raphinha,FC Barcelona,6,9.0,30,2023,PD
+Kirian Rodríguez,UD Las Palmas,6,2.0,37,2023,PD
+Luis Suárez,UD Almería,6,,15,2023,PD
+Léo Baptistão,UD Almería,6,,33,2023,PD
+Kylian Mbappé,Paris Saint-Germain FC,27,7.0,31,2023,FL1
+Alexandre Lacazette,Olympique Lyonnais,19,2.0,29,2023,FL1
+Jonathan David,Lille OSC,19,6.0,34,2023,FL1
+Pierre-Emerick Aubameyang,Olympique de Marseille,17,7.0,34,2023,FL1
+Wissam Ben Yedder,AS Monaco FC,16,2.0,33,2023,FL1
+Thijs Dallinga,Toulouse FC,14,2.0,33,2023,FL1
+Georges Mikautadze,FC Metz,13,4.0,20,2023,FL1
+Terem Moffi,OGC Nice,11,3.0,30,2023,FL1
+Gonçalo Ramos,Paris Saint-Germain FC,11,,32,2023,FL1
+Arnaud Kalimuendo,Stade Rennais FC 1901,10,2.0,30,2023,FL1
+Takumi Minamino,AS Monaco FC,9,6.0,30,2023,FL1
+Benjamin Bourigeaud,Stade Rennais FC 1901,9,5.0,32,2023,FL1
+Sepe Elye Wahi,Racing Club de Lens,9,1.0,29,2023,FL1
+Téji Savanier,Montpellier HSC,9,6.0,32,2023,FL1
+Romain Del Castillo,Stade Brestois 29,8,8.0,33,2023,FL1
+Muhammed Cham,Clermont Foot 63,8,4.0,33,2023,FL1
+Mostafa Mohamed,FC Nantes,8,2.0,29,2023,FL1
+Akor Adams,Montpellier HSC,8,,33,2023,FL1
+Emanuel Emegha,RC Strasbourg Alsace,8,1.0,28,2023,FL1
+Mohamed Bamba,FC Lorient,8,3.0,16,2023,FL1
+Florian Sotoca,Racing Club de Lens,7,6.0,32,2023,FL1
+Maghnes Akliouche,AS Monaco FC,7,5.0,31,2023,FL1
+Amine Gouiri,Stade Rennais FC 1901,7,3.0,33,2023,FL1
+Folarin Balogun,AS Monaco FC,7,5.0,29,2023,FL1
+Mahdi Camara,Stade Brestois 29,7,3.0,32,2023,FL1
+Wesley Saïd,Racing Club de Lens,7,1.0,28,2023,FL1
+Vitinha,Paris Saint-Germain FC,7,4.0,31,2023,FL1
+Martin Terrier,Stade Rennais FC 1901,7,3.0,24,2023,FL1
+Arnaud Nordin,Montpellier HSC,6,3.0,20,2023,FL1
+Evann Guessand,OGC Nice,6,,34,2023,FL1
+Teddy Teuma,Stade de Reims,6,3.0,28,2023,FL1
+Aleksandr Golovin,AS Monaco FC,6,6.0,25,2023,FL1
+Jérémie Boga,OGC Nice,6,6.0,28,2023,FL1
+Steve Mounié,Stade Brestois 29,6,1.0,32,2023,FL1
+Randal Kolo Muani,Paris Saint-Germain FC,6,5.0,29,2023,FL1
+Edon Zhegrova,Lille OSC,6,6.0,34,2023,FL1
+Kamory Doumbia,Stade Brestois 29,6,5.0,28,2023,FL1
+Vincent Sierro,Toulouse FC,6,2.0,32,2023,FL1
+Gaëtan Laborde,OGC Nice,5,2.0,34,2023,FL1
+Bafodé Diakité,Lille OSC,5,1.0,25,2023,FL1
+Musa Al Taamari,Montpellier HSC,5,2.0,27,2023,FL1
+Mohammed Daramy,Stade de Reims,5,5.0,26,2023,FL1
+Romain Faivre,FC Lorient,5,1.0,17,2023,FL1
+Frank Magri,Toulouse FC,5,2.0,29,2023,FL1
+Oumar Diakite,Stade de Reims,5,1.0,30,2023,FL1
+Yusuf Yazıcı,Lille OSC,5,2.0,30,2023,FL1
+Eli Kroupi,FC Lorient,5,3.0,38,2023,FL1
+Matthis Abline,FC Nantes,5,,29,2023,FL1
+Mohamed Bayo,Le Havre AC,5,1.0,24,2023,FL1
+Emmanuel Sabbi,Le Havre AC,5,1.0,33,2023,FL1
