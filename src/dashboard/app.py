@@ -104,7 +104,7 @@ if page == "⚽ Top Scorers":
     
     # Multiple seasons aggregation
 
-    filtered = filtered.sort_values("season")
+    filtered = filtered.sort_values(["season", "goals"])
     grouped = filtered.groupby(["id", "player"]).agg(
         goals=("goals", "sum"),
         assists=("assists", "sum"),
