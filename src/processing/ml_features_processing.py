@@ -110,12 +110,17 @@ def create_team_metrics_dataset():
 
             try:
                 df = create_matches_info_dataset_with_retries(league, season)
-                df_team_metrics = calculate_team_metrics_global(df)
-                all_team_metrics.append(df_team_metrics)
 
             except RuntimeError as e:
-                logger.error(str(e))        
-    
+                logger.error(str(e))
+
+            if df is None: 
+                logger.warning( f"Skipping {league} {season} due to an unexpected error" )
+                continue
+
+            df_team_metrics = calculate_team_metrics_global(df)
+            all_team_metrics.append(df_team_metrics)
+
     df_all_team_metrics = pd.concat(all_team_metrics, ignore_index=True)
 
     return df_all_team_metrics
