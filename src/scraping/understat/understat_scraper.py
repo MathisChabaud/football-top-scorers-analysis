@@ -167,7 +167,7 @@ def create_players_goals_dataset(df_players, nb_seasons):
     
     final_df = pd.concat(goals_data)
 
-    final_df.to_csv(f"{RAW_DATA_DIR}/goals_top{len(df_players)}_last{nb_seasons}seasons.csv", index=False)
+    final_df.to_csv(f"{RAW_DATA_DIR}/goals_top{len(df_players)}_last3seasons.csv", index=False)
     
     return final_df
 
@@ -189,7 +189,7 @@ def create_players_matches_dataset(df_players, nb_seasons):
     
     final_df = pd.concat(matches_data)
 
-    final_df.to_csv(f"{RAW_DATA_DIR}/matches_top{len(df_players)}_last{nb_seasons}seasons.csv", index=False)
+    final_df.to_csv(f"{RAW_DATA_DIR}/matches_top{len(df_players)}_last3seasons.csv", index=False)
 
     return final_df
 
@@ -201,11 +201,11 @@ def update_raw_data():
 
     create_all_players_dataset()
 
-    top_scorers_df = create_top_n_european_scorers_dataset(top_n=50, nb_seasons=3)
+    top_scorers_df = create_top_n_european_scorers_dataset(top_n=50, nb_seasons=4)
 
-    goals_df = create_players_goals_dataset(top_scorers_df, nb_seasons=3)
+    goals_df = create_players_goals_dataset(top_scorers_df, nb_seasons=4)
 
-    matches_df = create_players_matches_dataset(top_scorers_df, nb_seasons=3)
+    matches_df = create_players_matches_dataset(top_scorers_df, nb_seasons=4)
 
 
 def create_matches_info_dataset(league, season):
@@ -225,7 +225,7 @@ def create_matches_info_dataset(league, season):
     return df_match_info
 
 
-def create_matches_info_dataset_with_retries(league, season, retries=5):
+def create_matches_info_dataset_with_retries(league, season, retries=3):
     """
     create_matches_info_dataset with retries to handle potential rate limits or temporary issues with the Understat API.
     """
@@ -246,6 +246,7 @@ def create_matches_info_dataset_with_retries(league, season, retries=5):
                 f"Unexpected error for "
                 f"{league} {season}"
             )
+            return None
 
         sleep_time = random.uniform(2, 5)
         logger.info(f"Sleeping {sleep_time:.2f}s before retry")

@@ -2,11 +2,11 @@
 # YEARS
 # =========================
 
-YEAR = 2026
+YEAR = 2027
 
-SEASONS = [2025, 2024, 2023, 2022, 2021]
+SEASONS = [2026, 2025, 2024, 2023, 2022, 2021]
 
-LAST_3_SEASONS = ["2025", "2024", "2023"]
+LAST_3_SEASONS = ["2026", "2025", "2024", "2023"]
 
 # =========================
 # LEAGUES
@@ -38,7 +38,7 @@ DICTS_DIR = "data/dictionaries"
 
 BETA = 0.4 # weight for the F-beta score
 
-REL_THR = 0.7 # reliability score threshold (selecting only the most reliable players)
+REL_THR = 0.73 # reliability score threshold (selecting only the most reliable players)
 
 # =========================
 # BETTING
