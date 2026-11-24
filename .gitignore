@@ -1,3 +1,11 @@
 .venv/
 .vscode/
 __pycache__/
+CONTEXTE-PERSO.md
+data/processed/
+tmp/
+models/*.pkl
+models/*.joblib
+*.db
+*.duckdb
+.ipynb_checkpoints/
