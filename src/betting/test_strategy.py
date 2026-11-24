@@ -3,7 +3,7 @@ import numpy as np
 from src.ml.models import train_and_predict
 from src.ml.split import train_test_split_by_date
 from src.processing.ml_features_processing import create_features_dataset, prepare_data_for_ml
-from src.core.config import PROCESSED_DATA_DIR, ODDS, RAW_DATA_DIR, STAKE, REL_THR
+from src.core.config import PROCESSED_DATA_DIR, ODDS, RAW_DATA_DIR, RESULTS_DIR, STAKE, REL_THR
 
 
 def select_reliable_player_lines(df_matches):
@@ -487,7 +487,7 @@ def create_results_dataset():
 
     df_results = pd.DataFrame(results)
 
-    df_results.to_csv(f"{PROCESSED_DATA_DIR}/strategy_1_5_results.csv", index=False)
+    df_results.to_csv(f"{RESULTS_DIR}/strategy_1_5_results.csv", index=False)
 
 
 def create_results_dataset_for_ml_strat():
@@ -535,4 +535,4 @@ def create_results_dataset_for_ml_strat():
 
     df_results = pd.DataFrame(results)
     
-    df_results.to_csv(f"{PROCESSED_DATA_DIR}/strategy_6_results.csv", index=False)
+    df_results.to_csv(f"{RESULTS_DIR}/strategy_6_results.csv", index=False)

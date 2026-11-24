@@ -32,6 +32,8 @@ PROCESSED_DATA_DIR = "data/processed"
 
 DICTS_DIR = "data/dictionaries"
 
+RESULTS_DIR = "results" # model evaluation metrics and strategy backtest results
+
 # =========================
 # ML
 # =========================

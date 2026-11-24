@@ -30,6 +30,8 @@ football-top-scorers-analysis/
 │   ├── processed/              # Cleaned datasets
 │   └── dictionaries/           # Model parameters & mappings
 │
+├── results/                    # Model evaluation metrics & strategy backtest results
+│
 ├── scripts/
 │   ├── update_data.py
 │   ├── evaluate_models.py
@@ -115,7 +117,7 @@ This script:
 3. **Tunes hyperparameters** - Finds and saves optimal parameters for Logistic Regression, Random Forest, and XGBoost to `data/dictionaries/best_ml_params.json`. Optimization uses F-beta score with 5-fold cross-validation on the training set only.
 4. **Trains & evaluates models** - Trains each model with its optimal parameters and evaluates performance.
 5. **Optimizes threshold** - Finds the optimal probability threshold for `y_pred` and computes corresponding metrics.
-6. **Saves results** - Exports all evaluation metrics to `data/dictionaries/model_evaluation_results.json`.
+6. **Saves results** - Exports all evaluation metrics to `results/model_evaluation_results.json`.
 
 ### Making Predictions for Future Matches
 
@@ -146,8 +148,8 @@ python3 -m scripts.evaluate_strategies
 ```
 
 This script generates two result datasets:
-- `data/processed/strategy_1_5_results.csv` contains KPIs for strategies 1 to 5 (non-ML based) across various parameter configurations.
-- `data/processed/strategy_6_results.csv` contains KPIs for strategy 6 (progressive stake using ML predictions) across various parameter configurations. For Strategy 6, the ML model is trained on the first 80% of matches (chronologically) and applied on the most recent 20%.
+- `results/strategy_1_5_results.csv` contains KPIs for strategies 1 to 5 (non-ML based) across various parameter configurations.
+- `results/strategy_6_results.csv` contains KPIs for strategy 6 (progressive stake using ML predictions) across various parameter configurations. For Strategy 6, the ML model is trained on the first 80% of matches (chronologically) and applied on the most recent 20%.
 
 ## Dashboard
 

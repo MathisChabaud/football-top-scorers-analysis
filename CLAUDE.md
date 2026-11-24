@@ -17,6 +17,11 @@ ML/statistical pipeline that predicts whether one of the top 50 European scorers
 - No git command that pushes or rewrites history (`push`, `rebase`,
   `reset --hard`, `filter-repo`) unless I explicitly ask for it.
 - If a command may take more than a minute, ask me first.
+- `data/dictionaries/match_league_map.json`, `team_id_mapping.json` and
+  `all_team_metrics_before_match.json` are **not** regenerable from
+  `data/raw/`: they come from a separate scrape of roughly 2900 HTTP calls to a
+  site that is currently down. The committed copy is the only one. Never delete,
+  truncate or regenerate them.
 
 ## Environment
 
@@ -95,6 +100,15 @@ produced large, meaningless diffs. Never re-add it. The commit tagged
 - Scraping is the fragile part. Understat rate-limits by raising a spurious `InvalidMatch`; `create_matches_info_dataset_with_retries` retries with a random 2–5 s sleep, returns `None` on other exceptions, and raises `RuntimeError` after exhausting retries. In `create_team_metrics_dataset` that `RuntimeError` is only logged — `df` then still holds the *previous* league/season's frame, which gets processed a second time. Fix the loop rather than working around it if you touch that code.
 Diagnosed on 2026-11-24: this path has never fired on the committed data (checked for duplicate keys and per-league/per-season row counts). The code is still wrong and must be fixed, but the current data is clean.
 - `notebooks/` is exploratory only; nothing in the pipeline imports from it.
+
+## Open questions (answer these, never guess)
+
+- `scripts.evaluate_models` use the random stratified split, not `train_test_split_by_date`.
+- Where are the random seeds set, and is a full run bit-for-bit reproducible?
+- `date` is a plain string everywhere (no `pd.to_datetime` in the repo), so `train_test_split_by_date` sorts text lexicographically. With the current date format, that matches the true chronological order.
+- `clean_features_dataset` has two producers: the CSV read by
+`evaluate_models`, and the same computation redone in memory by
+`create_results_dataset_for_ml_strat`. Have they diverged?
 
 ## Working with me
 

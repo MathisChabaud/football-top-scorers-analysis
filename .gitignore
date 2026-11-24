@@ -4,6 +4,7 @@ __pycache__/
 CONTEXTE-PERSO.md
 data/processed/
 tmp/
+docs/revue/
 models/*.pkl
 models/*.joblib
 *.db

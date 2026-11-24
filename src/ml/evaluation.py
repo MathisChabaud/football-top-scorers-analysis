@@ -4,7 +4,7 @@ from src.ml.split import classic_train_test_split
 from src.ml.tuning import compute_and_save_best_parameters
 from src.ml.models import train_and_predict
 from src.processing.general_processing_functions import save_dict_json
-from src.core.config import BETA, REL_THR
+from src.core.config import BETA, REL_THR, RESULTS_DIR
 from src.core.logger import logger
 
 
@@ -90,4 +90,4 @@ def models_evaluation(df_features, save_results=False):
             "random_forest": {"metrics": metrics_rf, "best_threshold": thr_rf, "threshold_metrics": scores_rf},
             "xgboost": {"metrics": metrics_xgb, "best_threshold": thr_xgb, "threshold_metrics": scores_xgb}
         }
-        save_dict_json(results, "model_evaluation_results")
+        save_dict_json(results, "model_evaluation_results", directory=RESULTS_DIR)

@@ -7,12 +7,13 @@ from src.core.config import DICTS_DIR, RAW_DATA_DIR, PROCESSED_DATA_DIR
 from src.core.logger import logger
 
 
-def save_dict_json(dictionary, dict_name):
+def save_dict_json(dictionary, dict_name, directory=DICTS_DIR):
     """
     Save a dictionary as a JSON file with the specified name.
+    Written to DICTS_DIR unless another directory is given (e.g. RESULTS_DIR).
     """
 
-    filepath = f"{DICTS_DIR}/{dict_name}.json"
+    filepath = f"{directory}/{dict_name}.json"
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(dictionary, f, ensure_ascii=False, indent=4)
     logger.info(f"Dictionary saved to {filepath}")
