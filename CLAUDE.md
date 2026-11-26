@@ -11,9 +11,14 @@ ML/statistical pipeline that predicts whether one of the top 50 European scorers
 - **Never run `python -m scripts.update_data`.** Understat has been down since
   early November 2026. A partial scrape would overwrite `data/raw/`, which
   cannot be regenerated right now and is the only working copy of the data.
+  To rebuild derived data, use `python -m scripts.rebuild_processed` instead: it
+  runs only the offline half of the pipeline, makes no HTTP call, and writes
+  only to `data/processed/`.
 - Never write to, delete or move anything under `data/raw/`.
 - Before running any script that writes to `data/processed/` or
   `data/dictionaries/`, tell me what it will overwrite and wait for my approval.
+  `python -m scripts.rebuild_processed --dry-run` lists its targets without
+  writing anything, so use it to tell me what a rebuild would overwrite.
 - No git command that pushes or rewrites history (`push`, `rebase`,
   `reset --hard`, `filter-repo`) unless I explicitly ask for it.
 - If a command may take more than a minute, ask me first.
@@ -28,7 +33,7 @@ ML/statistical pipeline that predicts whether one of the top 50 European scorers
 The repo lives in WSL (Ubuntu) and runs on the `.venv` virtualenv there (Python 3.10). There is no usable Python on the Windows side, so run commands through WSL:
 
 ```bash
-wsl -d Ubuntu -- bash -lc 'cd ~/git/football-top-scorers-analysis && .venv/bin/python -m scripts.update_data'
+wsl -d Ubuntu -- bash -lc 'cd ~/git/football-top-scorers-analysis && .venv/bin/python -m scripts.rebuild_processed --dry-run'
 ```
 
 Inside WSL: `source .venv/bin/activate`, then `pip install -r requirements.txt`.
@@ -38,30 +43,43 @@ Inside WSL: `source .venv/bin/activate`, then `pip install -r requirements.txt`.
 All of these must be run **from the repo root** — `src/core/config.py` defines data paths as relative strings (`data/raw`, …), and `src/dashboard/app.py` reads `data/processed/...` relatively too.
 
 ```bash
+python -m scripts.rebuild_processed    # offline rebuild of data/processed/, no network (--dry-run lists targets)
 python -m scripts.update_data          # full scrape + rebuild of every data artifact (slow: heavy scraping)
-python -m scripts.evaluate_models      # grid-search tuning + eval of the 3 models, writes params & metrics JSON
-python -m scripts.evaluate_strategies  # backtests strategies 1-6, writes the two strategy result CSVs
+python -m scripts.evaluate_models      # grid-search tuning + eval of the 3 models, writes best_ml_params.json and results/
+python -m scripts.evaluate_strategies  # backtests strategies 1-6, writes the two strategy result CSVs in results/
 python -m scripts.predict              # single-player prediction for their upcoming match
 streamlit run src/dashboard/app.py     # Streamlit dashboard
 ```
 
+- **A fresh clone must run `python -m scripts.rebuild_processed` first.** `data/processed/` is not tracked, so without it every other command fails on a missing file. It takes a few seconds and needs no network.
 - Use `python -m scripts.<name>`, not `python scripts/<name>.py`. There is **no `__init__.py` anywhere**; `src` and `scripts` resolve as implicit namespace packages only when the root is on `sys.path`.
 - `scripts/predict.py` takes no CLI arguments: edit the `PLAYER_ID` and `MODEL_NAME` module constants at the top of the file.
 - **There is no test suite.** `pytest` and `pytest-cov` are in `requirements.txt` but `pytest --collect-only` finds nothing. Note that `src/betting/test_strategy.py` is *not* a test file despite the name — it is the betting strategy implementation module.
 
 ## Data pipeline
 
-The pipeline is a strictly sequential chain of files on disk; there is no in-memory orchestration. Each step reads what the previous one wrote, so order matters and a failed step silently poisons everything after it. `scripts/update_data.py` is the authoritative ordering:
+The pipeline is a strictly sequential chain of files on disk; there is no in-memory orchestration. Each step reads what the previous one wrote, so order matters and a failed step silently poisons everything after it.
+
+`scripts/update_data.py` is still the authoritative ordering, now as **two explicit step tables** instead of a `main()` body. Each entry is `(label, callable, [files written])`:
+
+**`SCRAPE_STEPS`** — the network half, run by `scrape()`. Never run this.
 
 | Step (function) | Writes |
 |---|---|
 | `understat_scraper.update_raw_data` | `data/raw/all_players_data.csv`, `goals_top50_last3seasons.csv`, `matches_top50_last3seasons.csv` |
+| `update_data.refresh_match_league_mapping` (wraps `general_processing_functions.update_match_league_mapping`) | `data/dictionaries/match_league_map.json` |
+| `ml_features_processing.create_team_mappings` | `data/dictionaries/team_id_mapping.json`, `all_team_metrics_before_match.json` |
+
+**`REBUILD_STEPS`** — the offline half, run by `rebuild()`. This is what `scripts/rebuild_processed.py` imports and runs; it is the **single** definition, shared by both entry points, so they cannot drift apart.
+
+| Step (function) | Writes |
+|---|---|
 | `dashboard_data_processing.build_clean_players_dataset` | `data/processed/all_players_data_clean.csv` (dashboard only) |
-| `general_processing_functions.update_match_league_mapping` | `data/dictionaries/match_league_map.json` |
 | `general_processing_functions.create_matches_goals_dataset` | `data/processed/matches_goals_top50_last3seasons.csv` |
 | `delay_score_processing.create_delay_score_dataset` | `data/processed/top50_players_delay_score.csv` |
-| `ml_features_processing.create_team_mappings` | `data/dictionaries/team_id_mapping.json`, `all_team_metrics_before_match.json` |
 | `ml_features_processing.create_clean_features_dataset` | `data/processed/clean_features_dataset.csv` (ML-ready, target = `scored`) |
+
+`update_data.main()` runs `scrape()` then `rebuild()`, so the three network steps now all happen before the four offline ones. That is a reordering of the original interleaved sequence; it is safe because `create_team_mappings` reads nothing from disk, and every other dependency still precedes its consumer. Verified by dependency analysis, not by execution — the network half has never been run since the outage.
 
 Two concepts carry the whole project and are computed across several files:
 
@@ -73,10 +91,23 @@ Two concepts carry the whole project and are computed across several files:
 `data/raw/` and `data/dictionaries/` are committed to git on purpose: the files
 are 1-6 MB, the raw data cannot currently be re-scraped, and a fresh clone must
 be able to run the whole pipeline. `data/processed/` is **no longer tracked**:
-it is fully regenerable from the raw data and the code, and committing it
-produced large, meaningless diffs. Never re-add it. The commit tagged
+it is fully regenerable from the raw data and the code by
+`python -m scripts.rebuild_processed`, and committing it produced large,
+meaningless diffs. Never re-add it. The commit tagged
 `baseline-before-refactor` holds the last fully committed state of
 `data/processed/`, and is the reference for non-regression checks.
+
+The four offline artifacts are deterministic: rebuilding them reproduces the
+committed values exactly (verified 2026-11-26, max numeric difference 0 on all
+four, text columns identical). `scripts.rebuild_processed` is therefore usable as
+a non-regression check — rebuild, then diff against the previous output to see
+whether a change altered the data.
+
+`results/` holds the three published outputs and **is** tracked:
+`model_evaluation_results.json`, `strategy_1_5_results.csv`,
+`strategy_6_results.csv`. They used to live in `data/dictionaries/` and
+`data/processed/`. `save_dict_json` writes to `DICTS_DIR` unless given
+`directory=RESULTS_DIR`, which is how the model metrics land in `results/`.
 
 ## ML layer
 
@@ -104,11 +135,16 @@ Diagnosed on 2026-11-24: this path has never fired on the committed data (checke
 ## Open questions (answer these, never guess)
 
 - `scripts.evaluate_models` use the random stratified split, not `train_test_split_by_date`.
-- Where are the random seeds set, and is a full run bit-for-bit reproducible?
+- Random seeds are **not** centralised. The literal `random_state=42` is hardcoded in four places: `models.py:20` (`RandomForestClassifier`), `models.py:23` (`XGBClassifier`), `split.py:4` (signature default of `classic_train_test_split`) and `tuning.py:16` (`StratifiedKFold`). `split.py:13` only passes the parameter through. `LogisticRegression` (`models.py:17`) gets no seed at all, which is harmless — `lbfgs` is deterministic — and so are `StandardScaler` and `MinMaxScaler`. There is no seed in `config.py`.
+- **A full run is not known to be bit-for-bit reproducible**, and nothing in the repo tests it: `GridSearchCV` (`tuning.py:32`) and `XGBClassifier` (`models.py:23`) both run with `n_jobs=-1`, so reduction order depends on the thread pool. What *is* verified (2026-11-26) is that the four offline `data/processed/` artifacts rebuild exactly, max numeric difference 0. The ML outputs in `results/` have not been checked this way.
 - `date` is a plain string everywhere (no `pd.to_datetime` in the repo), so `train_test_split_by_date` sorts text lexicographically. With the current date format, that matches the true chronological order.
 - `clean_features_dataset` has two producers: the CSV read by
 `evaluate_models`, and the same computation redone in memory by
-`create_results_dataset_for_ml_strat`. Have they diverged?
+`create_results_dataset_for_ml_strat` (`test_strategy.py:498-499`, with
+`skip_ids=False`). **They have not diverged** — measured 2026-11-24, both give
+4822 × 31 with a maximum absolute difference of 1.8e-12, i.e. floating-point
+noise. The duplication stays a latent risk rather than a current bug: re-run the
+comparison after touching `create_features_dataset` or `prepare_data_for_ml`.
 
 ## Working with me
 

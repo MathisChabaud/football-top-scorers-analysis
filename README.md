@@ -27,7 +27,7 @@ football-top-scorers-analysis/
 │
 ├── data/
 │   ├── raw/                    # Raw data from Understat
-│   ├── processed/              # Cleaned datasets
+│   ├── processed/              # Cleaned datasets (generated, not tracked)
 │   └── dictionaries/           # Model parameters & mappings
 │
 ├── results/                    # Model evaluation metrics & strategy backtest results
@@ -75,6 +75,23 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+4. **Rebuild the processed datasets**
+
+`data/processed/` is generated and not tracked by git, so a fresh clone has none of
+it and every other command fails on a missing file. Build it once, from the
+repository root. No network access is required:
+
+```bash
+python3 -m scripts.rebuild_processed
+```
+
+Takes a few seconds. After this, the dashboard, the model evaluation and the
+strategy backtests all run. See [Rebuild Processed Datasets](#rebuild-processed-datasets-offline)
+for what it does.
+
+> All commands in this README must be run from the repository root: data paths in
+> `src/core/config.py` are relative.
+
 ## Configuration
 
 Global project constants are centralized in `src/core/config.py`. This file contains all configurable parameters, making it easy to modify behavior without digging through multiple files.
@@ -90,18 +107,64 @@ Global project constants are centralized in `src/core/config.py`. This file cont
 
 ## Data Pipeline
 
-### Create / Update Datasets
+The pipeline is a sequential chain of files on disk: each step reads what the
+previous one wrote. It splits in two, and the split matters.
 
-Run the data collection script to fetch latest match data from Understat:
+- **Offline steps** rebuild `data/processed/` from `data/raw/` and
+  `data/dictionaries/`, both of which are committed. This is `scripts.rebuild_processed`.
+- **Network steps** scrape Understat to refresh `data/raw/` and the three mapping
+  dictionaries. This is `scripts.update_data`.
+
+### Rebuild Processed Datasets (offline)
+
+```bash
+python3 -m scripts.rebuild_processed
+python3 -m scripts.rebuild_processed --dry-run   # list the target files, write nothing
+```
+
+Four steps, in this order, each reading what the previous one wrote:
+
+| Step | Writes |
+|---|---|
+| `build_clean_players_dataset` | `data/processed/all_players_data_clean.csv` |
+| `create_matches_goals_dataset` | `data/processed/matches_goals_top50_last3seasons.csv` |
+| `create_delay_score_dataset` | `data/processed/top50_players_delay_score.csv` |
+| `create_clean_features_dataset` | `data/processed/clean_features_dataset.csv` |
+
+Reads `data/raw/` and `data/dictionaries/`, writes **only** to `data/processed/`,
+makes no HTTP call. Missing inputs are reported by name before any work starts.
+The steps and their order come from `scripts.update_data.REBUILD_STEPS`, so the
+offline and full pipelines cannot drift apart.
+
+This is the script to run after cloning, and the one to re-run after changing any
+feature-engineering code. It is also a usable non-regression check: the four
+artifacts are deterministic, so rebuilding them and diffing against the previous
+output tells you whether a change altered the data.
+
+### Create / Update Datasets (network)
+
+Fetches the latest match data from Understat and rebuilds every artifact:
 
 ```bash
 python3 -m scripts.update_data
 ```
 
-This script:
-1. Updates and saves raw datasets
-2. Rebuilds and saves features datasets
-3. Updates and saves mappings/dictionaries
+This script runs both halves of the pipeline in turn:
+
+1. `scrape()` — three network steps: refreshes the three raw CSVs, then
+   `match_league_map.json`, then `team_id_mapping.json` and
+   `all_team_metrics_before_match.json`.
+2. `rebuild()` — the same four offline steps as `scripts.rebuild_processed`, which
+   imports them from here. `scripts/update_data.py` holds the single definition of
+   the step order for both halves (`SCRAPE_STEPS` and `REBUILD_STEPS`).
+
+> **This script overwrites `data/raw/`, which cannot currently be re-scraped.**
+> Understat has been unreachable since early November 2026, so a partial run would
+> replace the only working copy of the raw data with a truncated one. It also
+> rewrites `match_league_map.json`, `team_id_mapping.json` and
+> `all_team_metrics_before_match.json`, which come from a separate scrape of ~2900
+> HTTP calls and have no other source. Use `scripts.rebuild_processed` unless you
+> specifically intend to re-scrape.
 
 ### Machine Learning Workflow
 
