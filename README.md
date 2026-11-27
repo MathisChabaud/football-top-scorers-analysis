@@ -39,6 +39,7 @@ football-top-scorers-analysis/
 │   └── predict.py
 │
 ├── src/
+│   ├── pipeline.py             # step tables + scrape() / rebuild()
 │   ├── core/
 │   ├── betting/
 │   ├── dashboard/
@@ -133,8 +134,6 @@ Four steps, in this order, each reading what the previous one wrote:
 
 Reads `data/raw/` and `data/dictionaries/`, writes **only** to `data/processed/`,
 makes no HTTP call. Missing inputs are reported by name before any work starts.
-The steps and their order come from `scripts.update_data.REBUILD_STEPS`, so the
-offline and full pipelines cannot drift apart.
 
 This is the script to run after cloning, and the one to re-run after changing any
 feature-engineering code. It is also a usable non-regression check: the four
@@ -154,9 +153,10 @@ This script runs both halves of the pipeline in turn:
 1. `scrape()` — three network steps: refreshes the three raw CSVs, then
    `match_league_map.json`, then `team_id_mapping.json` and
    `all_team_metrics_before_match.json`.
-2. `rebuild()` — the same four offline steps as `scripts.rebuild_processed`, which
-   imports them from here. `scripts/update_data.py` holds the single definition of
-   the step order for both halves (`SCRAPE_STEPS` and `REBUILD_STEPS`).
+2. `rebuild()` — the same four offline steps as `scripts.rebuild_processed`.
+
+Both halves live in `src/pipeline.py`, which holds the single definition of the
+step order (`SCRAPE_STEPS` and `REBUILD_STEPS`) plus `scrape()` and `rebuild()`.
 
 > **This script overwrites `data/raw/`, which cannot currently be re-scraped.**
 > Understat has been unreachable since early November 2026, so a partial run would

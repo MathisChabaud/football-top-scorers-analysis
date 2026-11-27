@@ -1,36 +1,18 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Project
-
-ML/statistical pipeline that predicts whether one of the top 50 European scorers will score in their next match, and backtests betting strategies on top of those predictions. All data comes from Understat via the `understatapi` library (EPL, La Liga, Bundesliga, Serie A, Ligue 1).
+ML/statistical pipeline predicting whether one of the top 50 European scorers will score in their next match, plus betting-strategy backtests on those predictions. Single source: Understat via `understatapi` (EPL, La Liga, Bundesliga, Serie A, Ligue 1).
 
 ## Execution guardrails
 
-- **Never run `python -m scripts.update_data`.** Understat has been down since
-  early November 2026. A partial scrape would overwrite `data/raw/`, which
-  cannot be regenerated right now and is the only working copy of the data.
-  To rebuild derived data, use `python -m scripts.rebuild_processed` instead: it
-  runs only the offline half of the pipeline, makes no HTTP call, and writes
-  only to `data/processed/`.
+- **Never run `python -m scripts.update_data`.** Understat has been down since early November 2026; a partial scrape would overwrite `data/raw/`, the only working copy, which cannot be regenerated. To rebuild derived data use `python -m scripts.rebuild_processed`: offline, writes only to `data/processed/`.
 - Never write to, delete or move anything under `data/raw/`.
-- Before running any script that writes to `data/processed/` or
-  `data/dictionaries/`, tell me what it will overwrite and wait for my approval.
-  `python -m scripts.rebuild_processed --dry-run` lists its targets without
-  writing anything, so use it to tell me what a rebuild would overwrite.
-- No git command that pushes or rewrites history (`push`, `rebase`,
-  `reset --hard`, `filter-repo`) unless I explicitly ask for it.
-- If a command may take more than a minute, ask me first.
-- `data/dictionaries/match_league_map.json`, `team_id_mapping.json` and
-  `all_team_metrics_before_match.json` are **not** regenerable from
-  `data/raw/`: they come from a separate scrape of roughly 2900 HTTP calls to a
-  site that is currently down. The committed copy is the only one. Never delete,
-  truncate or regenerate them.
+- Before running anything that writes to `data/processed/` or `data/dictionaries/`, tell me what it will overwrite and wait for my approval. `scripts.rebuild_processed --dry-run` lists the targets without writing.
+- `data/dictionaries/match_league_map.json`, `team_id_mapping.json` and `all_team_metrics_before_match.json` are **not** regenerable from `data/raw/`: they come from a separate scrape of ~2900 HTTP calls to a site that is down. The committed copies are the only ones. Never delete, truncate or regenerate them.
+- No git command that pushes or rewrites history (`push`, `rebase`, `reset --hard`, `filter-repo`) unless I explicitly ask for it.
 
 ## Environment
 
-The repo lives in WSL (Ubuntu) and runs on the `.venv` virtualenv there (Python 3.10). There is no usable Python on the Windows side, so run commands through WSL:
+The repo lives in WSL (Ubuntu) and runs on the `.venv` virtualenv there (Python 3.10). There is no usable Python on the Windows side:
 
 ```bash
 wsl -d Ubuntu -- bash -lc 'cd ~/git/football-top-scorers-analysis && .venv/bin/python -m scripts.rebuild_processed --dry-run'
@@ -40,119 +22,77 @@ Inside WSL: `source .venv/bin/activate`, then `pip install -r requirements.txt`.
 
 ## Commands
 
-All of these must be run **from the repo root** — `src/core/config.py` defines data paths as relative strings (`data/raw`, …), and `src/dashboard/app.py` reads `data/processed/...` relatively too.
+Run everything **from the repo root**: `src/core/config.py` holds data paths as relative strings, and `src/dashboard/app.py` reads `data/processed/...` relatively too.
 
 ```bash
-python -m scripts.rebuild_processed    # offline rebuild of data/processed/, no network (--dry-run lists targets)
-python -m scripts.update_data          # full scrape + rebuild of every data artifact (slow: heavy scraping)
-python -m scripts.evaluate_models      # grid-search tuning + eval of the 3 models, writes best_ml_params.json and results/
-python -m scripts.evaluate_strategies  # backtests strategies 1-6, writes the two strategy result CSVs in results/
-python -m scripts.predict              # single-player prediction for their upcoming match
-streamlit run src/dashboard/app.py     # Streamlit dashboard
+python -m scripts.rebuild_processed    # offline rebuild of data/processed/ (--dry-run lists targets)
+python -m scripts.update_data          # full scrape + rebuild (NEVER run it, see guardrails)
+python -m scripts.evaluate_models      # tuning + eval of the 3 models -> best_ml_params.json, results/
+python -m scripts.evaluate_strategies  # backtests strategies 1-6 -> the 2 CSVs in results/
+python -m scripts.predict              # single-player prediction (needs network)
+streamlit run src/dashboard/app.py     # dashboard
 ```
 
-- **A fresh clone must run `python -m scripts.rebuild_processed` first.** `data/processed/` is not tracked, so without it every other command fails on a missing file. It takes a few seconds and needs no network.
-- Use `python -m scripts.<name>`, not `python scripts/<name>.py`. There is **no `__init__.py` anywhere**; `src` and `scripts` resolve as implicit namespace packages only when the root is on `sys.path`.
-- `scripts/predict.py` takes no CLI arguments: edit the `PLAYER_ID` and `MODEL_NAME` module constants at the top of the file.
-- **There is no test suite.** `pytest` and `pytest-cov` are in `requirements.txt` but `pytest --collect-only` finds nothing. Note that `src/betting/test_strategy.py` is *not* a test file despite the name — it is the betting strategy implementation module.
+- **A fresh clone must run `scripts.rebuild_processed` first**: `data/processed/` is untracked, so every other command fails on a missing file. Takes seconds, no network.
+- Use `python -m scripts.<name>`, never `python scripts/<name>.py`. There is **no `__init__.py` anywhere**; `src` and `scripts` resolve only because the root is on `sys.path`.
+- `scripts/predict.py` takes no CLI arguments: edit the `PLAYER_ID` and `MODEL_NAME` module constants.
+- **There is no test suite.** pytest is installed but collects nothing. `src/betting/test_strategy.py` is *not* a test file despite the name — it is the strategy implementation.
 
 ## Data pipeline
 
-The pipeline is a strictly sequential chain of files on disk; there is no in-memory orchestration. Each step reads what the previous one wrote, so order matters and a failed step silently poisons everything after it.
+A strictly sequential chain of files on disk, no in-memory orchestration: each step reads what the previous one wrote, so order matters and a failed step silently poisons everything downstream.
 
-`scripts/update_data.py` is still the authoritative ordering, now as **two explicit step tables** instead of a `main()` body. Each entry is `(label, callable, [files written])`:
+**`src/pipeline.py` is the authoritative ordering**, as two tables of `(label, callable, [files written])`. The scripts are thin wrappers over them.
 
-**`SCRAPE_STEPS`** — the network half, run by `scrape()`. Never run this.
+- `SCRAPE_STEPS` / `scrape()` — 3 network steps: `update_raw_data` → the 3 raw CSVs; `refresh_match_league_mapping` → `match_league_map.json`; `create_team_mappings` → `team_id_mapping.json` + `all_team_metrics_before_match.json`.
+- `REBUILD_STEPS` / `rebuild()` — 4 offline steps, in order: `build_clean_players_dataset` → `all_players_data_clean.csv` (dashboard only); `create_matches_goals_dataset` → `matches_goals_top50_last3seasons.csv`; `create_delay_score_dataset` → `top50_players_delay_score.csv`; `create_clean_features_dataset` → `clean_features_dataset.csv` (ML-ready, target = `scored`).
 
-| Step (function) | Writes |
-|---|---|
-| `understat_scraper.update_raw_data` | `data/raw/all_players_data.csv`, `goals_top50_last3seasons.csv`, `matches_top50_last3seasons.csv` |
-| `update_data.refresh_match_league_mapping` (wraps `general_processing_functions.update_match_league_mapping`) | `data/dictionaries/match_league_map.json` |
-| `ml_features_processing.create_team_mappings` | `data/dictionaries/team_id_mapping.json`, `all_team_metrics_before_match.json` |
+`update_data.main()` runs `scrape()` then `rebuild()`. That reorders the original interleaved sequence; it is safe because `create_team_mappings` reads nothing from disk and every other step still follows the one it consumes — verified by dependency analysis, not by execution.
 
-**`REBUILD_STEPS`** — the offline half, run by `rebuild()`. This is what `scripts/rebuild_processed.py` imports and runs; it is the **single** definition, shared by both entry points, so they cannot drift apart.
+Two concepts carry the whole project:
 
-| Step (function) | Writes |
-|---|---|
-| `dashboard_data_processing.build_clean_players_dataset` | `data/processed/all_players_data_clean.csv` (dashboard only) |
-| `general_processing_functions.create_matches_goals_dataset` | `data/processed/matches_goals_top50_last3seasons.csv` |
-| `delay_score_processing.create_delay_score_dataset` | `data/processed/top50_players_delay_score.csv` |
-| `ml_features_processing.create_clean_features_dataset` | `data/processed/clean_features_dataset.csv` (ML-ready, target = `scored`) |
+- **Delay** (`create_matches_goals_dataset`, then `create_delay_score_dataset`): playing minutes accumulate per player (`cumulative_time`), goals are placed on that absolute timeline (`last_goal_time`), giving `time_between_goals` and `minutes_since_last_goal_before_match` — the leak-free "how long has this player gone without scoring" feature.
+- **`reliability_score`** (`create_delay_score_dataset`): `0.50·avg_delay + 0.30·std_delay + 0.20·big_drought_freq`, each min-max scaled then inverted so higher = more regular scorer. `config.REL_THR` (0.73) filters players for **both** ML training and the backtests, so changing it moves every downstream number.
+- `all_team_metrics_before_match.json` is keyed by `"{match_id}_{team_id}"` and holds each team's pre-match cumulative form; the feature builder joins on it for the player's team and again for the opponent.
 
-`update_data.main()` runs `scrape()` then `rebuild()`, so the three network steps now all happen before the four offline ones. That is a reordering of the original interleaved sequence; it is safe because `create_team_mappings` reads nothing from disk, and every other dependency still precedes its consumer. Verified by dependency analysis, not by execution — the network half has never been run since the outage.
-
-Two concepts carry the whole project and are computed across several files:
-
-- **Delay** (`create_matches_goals_dataset`, then `create_delay_score_dataset`): playing minutes are accumulated per player across matches (`cumulative_time`), goals are placed on that absolute timeline (`last_goal_time`), giving `time_between_goals` and `minutes_since_last_goal_before_match` — the leak-free "how long has this player gone without scoring" feature.
-- **`reliability_score`** (`create_delay_score_dataset`): weighted sum `0.50·avg_delay + 0.30·std_delay + 0.20·big_drought_freq`, each min-max scaled then inverted so higher = more regular scorer. `config.REL_THR` (0.73) filters players for **both** ML training and the betting backtests, so changing it moves every downstream number.
-
-`all_team_metrics_before_match.json` is keyed by the composite string `"{match_id}_{team_id}"` and holds each team's pre-match cumulative form; the feature builder joins on that key for the player's team and again for the opponent.
-
-`data/raw/` and `data/dictionaries/` are committed to git on purpose: the files
-are 1-6 MB, the raw data cannot currently be re-scraped, and a fresh clone must
-be able to run the whole pipeline. `data/processed/` is **no longer tracked**:
-it is fully regenerable from the raw data and the code by
-`python -m scripts.rebuild_processed`, and committing it produced large,
-meaningless diffs. Never re-add it. The commit tagged
-`baseline-before-refactor` holds the last fully committed state of
-`data/processed/`, and is the reference for non-regression checks.
-
-The four offline artifacts are deterministic: rebuilding them reproduces the
-committed values exactly (verified 2026-11-26, max numeric difference 0 on all
-four, text columns identical). `scripts.rebuild_processed` is therefore usable as
-a non-regression check — rebuild, then diff against the previous output to see
-whether a change altered the data.
-
-`results/` holds the three published outputs and **is** tracked:
-`model_evaluation_results.json`, `strategy_1_5_results.csv`,
-`strategy_6_results.csv`. They used to live in `data/dictionaries/` and
-`data/processed/`. `save_dict_json` writes to `DICTS_DIR` unless given
-`directory=RESULTS_DIR`, which is how the model metrics land in `results/`.
+**Tracking.** `data/raw/` and `data/dictionaries/` are committed on purpose (1-6 MB, not re-scrapable). `data/processed/` is **not** tracked — fully regenerable by `scripts.rebuild_processed`; never re-add it. `results/` **is** tracked and holds the three published outputs (`model_evaluation_results.json`, the 2 strategy CSVs); `save_dict_json` writes to `DICTS_DIR` unless given `directory=RESULTS_DIR`. The tag `baseline-before-refactor` is the non-regression reference. The four offline artifacts are deterministic (rebuilt identically, 2026-11-26), so rebuild + diff works as a regression check.
 
 ## ML layer
 
-`src/ml/` is split by concern: `split.py` (random stratified split vs. chronological `train_test_split_by_date`), `tuning.py` (`GridSearchCV`, 5-fold stratified, refit on F-beta), `models.py` (model factory + `train_and_predict`), `evaluation.py` (metrics + threshold optimisation).
+`src/ml/` is split by concern: `split.py` (random stratified vs. chronological `train_test_split_by_date`), `tuning.py` (`GridSearchCV`, 5-fold stratified, refit on F-beta), `models.py` (factory + `train_and_predict`), `evaluation.py` (metrics + threshold search).
 
-- `train_and_predict` **loads hyperparameters from `data/dictionaries/best_ml_params.json`**. Run `python -m scripts.evaluate_models` at least once before `scripts.predict` or strategy 6, otherwise the params are stale or missing.
-- `config.BETA = 0.4` makes F-beta favour precision over recall — deliberate, because a false positive costs a real stake.
-- Feature scaling (`StandardScaler`) is applied **only** for `logistic_regression`; tree models get raw features.
+- `train_and_predict` **loads hyperparameters from `data/dictionaries/best_ml_params.json`**. Run `scripts.evaluate_models` at least once before `scripts.predict` or strategy 6, otherwise the params are stale or missing.
+- `config.BETA = 0.4` makes F-beta favour precision over recall — deliberate: a false positive costs a real stake.
+- `StandardScaler` is applied **only** for `logistic_regression`; tree models get raw features.
 
 ## Betting layer
 
-`src/betting/test_strategy.py` holds strategies 1–6 plus the KPI computations. Strategies 1–5 are non-ML (fixed stake, global martingale, per-player martingale, and delay-conditioned variants) and backtest over the whole period. Strategy 6 is the only one that uses the models, and it is the only one with a chronological split (first 80% of matches train, last 20% evaluated). KPIs are intentionally different between the two families: `compute_kpis_for_ml_strat` additionally tracks `max_consecutive_losses`, which is what actually kills a martingale.
+`src/betting/test_strategy.py` holds strategies 1-6 plus the KPIs. Strategies 1-5 are non-ML (fixed stake, global and per-player martingale, delay-conditioned variants) and backtest the whole period. Strategy 6 is the only one that uses the models and the only one with a chronological split (first 80% train, last 20% evaluated). `compute_kpis_for_ml_strat` additionally tracks `max_consecutive_losses`, which is what actually kills a martingale.
 
 ## Conventions and known rough edges
 
-- **Never open the project's CSVs directly.** To inspect a data file, write a short pandas script that prints `df.shape`, `df.dtypes` and `df.head(5)`, and read its output. The raw/processed files are 1–6 MB.
+- **Never open the project's CSVs directly.** To inspect one, write a short pandas script printing `df.shape`, `df.dtypes` and `df.head(5)`, and read its output. The files are 1-6 MB.
 - **Config-first**: tunable constants (`YEAR`, `SEASONS`, `LEAGUES`, `BETA`, `REL_THR`, `ODDS`, `STAKE`, data dirs) live in `src/core/config.py`. Do not hardcode them elsewhere. Logging goes through `src/core/logger.py`.
-- `YEAR` is **one ahead** of the running season (2027 during the 2026-27 season); season filters are written as `season >= YEAR - nb_seasons`.
-- Names lie about season counts: `LAST_3_SEASONS` holds **four** seasons, `update_raw_data` passes `nb_seasons=4`, and the filenames still say `last3seasons`. Filenames are hardcoded as string literals in several modules, so renaming requires touching every reader.
-- **Feature engineering is duplicated** between `prepare_data_for_ml` (training) and `prepare_new_data_for_prediction` (inference) in `ml_features_processing.py`. Both compute the same eight ratios and the same encodings independently, and the inference path hardcodes the one-hot league columns (`league_Bundesliga`, …) that training derives from `OneHotEncoder`. Any new feature must be added to both, or inference will misalign silently.
-- Scraping is the fragile part. Understat rate-limits by raising a spurious `InvalidMatch`; `create_matches_info_dataset_with_retries` retries with a random 2–5 s sleep, returns `None` on other exceptions, and raises `RuntimeError` after exhausting retries. In `create_team_metrics_dataset` that `RuntimeError` is only logged — `df` then still holds the *previous* league/season's frame, which gets processed a second time. Fix the loop rather than working around it if you touch that code.
-Diagnosed on 2026-11-24: this path has never fired on the committed data (checked for duplicate keys and per-league/per-season row counts). The code is still wrong and must be fixed, but the current data is clean.
+- `YEAR` is **one ahead** of the running season (2027 during 2026-27); season filters read `season >= YEAR - nb_seasons`.
+- Names lie about season counts: `LAST_3_SEASONS` holds **four** seasons, `update_raw_data` passes `nb_seasons=4`, and filenames still say `last3seasons`. Filenames are string literals in several modules, so renaming means touching every reader.
+- **Feature engineering is duplicated** between `prepare_data_for_ml` (training) and `prepare_new_data_for_prediction` (inference) in `ml_features_processing.py`: the same eight ratios computed twice, and inference hardcodes the one-hot league columns that training derives from `OneHotEncoder`. Any new feature must go in both, or inference misaligns silently.
+- Scraping is the fragile part. `create_matches_info_dataset_with_retries` absorbs Understat's spurious `InvalidMatch` rate-limit (3 attempts, 2-5 s sleep), returns `None` on other exceptions and raises `RuntimeError` when exhausted. In `create_team_metrics_dataset` that `RuntimeError` is only logged, so `df` keeps the *previous* league/season frame and gets processed twice. Fix the loop rather than working around it. (Diagnosed 2026-11-24: this path has never fired on the committed data, but the code is still wrong.)
 - `notebooks/` is exploratory only; nothing in the pipeline imports from it.
 
-## Open questions (answer these, never guess)
+## Answered — do not re-derive (put new open questions here)
 
-- `scripts.evaluate_models` use the random stratified split, not `train_test_split_by_date`.
-- Random seeds are **not** centralised. The literal `random_state=42` is hardcoded in four places: `models.py:20` (`RandomForestClassifier`), `models.py:23` (`XGBClassifier`), `split.py:4` (signature default of `classic_train_test_split`) and `tuning.py:16` (`StratifiedKFold`). `split.py:13` only passes the parameter through. `LogisticRegression` (`models.py:17`) gets no seed at all, which is harmless — `lbfgs` is deterministic — and so are `StandardScaler` and `MinMaxScaler`. There is no seed in `config.py`.
-- **A full run is not known to be bit-for-bit reproducible**, and nothing in the repo tests it: `GridSearchCV` (`tuning.py:32`) and `XGBClassifier` (`models.py:23`) both run with `n_jobs=-1`, so reduction order depends on the thread pool. What *is* verified (2026-11-26) is that the four offline `data/processed/` artifacts rebuild exactly, max numeric difference 0. The ML outputs in `results/` have not been checked this way.
-- `date` is a plain string everywhere (no `pd.to_datetime` in the repo), so `train_test_split_by_date` sorts text lexicographically. With the current date format, that matches the true chronological order.
-- `clean_features_dataset` has two producers: the CSV read by
-`evaluate_models`, and the same computation redone in memory by
-`create_results_dataset_for_ml_strat` (`test_strategy.py:498-499`, with
-`skip_ids=False`). **They have not diverged** — measured 2026-11-24, both give
-4822 × 31 with a maximum absolute difference of 1.8e-12, i.e. floating-point
-noise. The duplication stays a latent risk rather than a current bug: re-run the
-comparison after touching `create_features_dataset` or `prepare_data_for_ml`.
+- `scripts.evaluate_models` uses the random stratified split, not `train_test_split_by_date`.
+- `date` is a plain string everywhere (no `pd.to_datetime` in the repo), so `train_test_split_by_date` sorts text lexicographically. With the ISO format in use, that matches true chronological order.
+- Random seeds are **not** centralised: the literal `random_state=42` sits in `models.py:20`, `models.py:23`, `split.py:4` (signature default) and `tuning.py:16`. `LogisticRegression` gets none — harmless, `lbfgs` is deterministic. Nothing in `config.py`.
+- **A full run is not known to be bit-for-bit reproducible** and nothing in the repo tests it: `GridSearchCV` and `XGBClassifier` both run with `n_jobs=-1`. Only the four offline artifacts are verified reproducible.
+- `clean_features_dataset` has two producers — the CSV read by `evaluate_models`, and the same computation redone in memory by `create_results_dataset_for_ml_strat` (`test_strategy.py:498-499`). **They have not diverged**: measured 2026-11-24, both 4822 × 31, max absolute difference 1.8e-12. Latent risk, not a current bug — re-check after touching `create_features_dataset` or `prepare_data_for_ml`.
 
 ## Working with me
 
 - Answer me in French. Code, identifiers and comments stay in English.
-- No opportunistic refactoring: touch only what I asked for. If you spot
-  something else worth fixing, mention it and move on.
-- This project is also how I learn. Prefer solutions I can understand and
-  explain back, and tell me when you rule out a more idiomatic but more opaque
-  option.
+- No opportunistic refactoring: touch only what I asked for. If you spot something else worth fixing, mention it and move on.
+- Scripts in `scripts/` are entry points: `main()` and argument parsing only. Logic, orchestration and anything worth testing or reusing belongs in `src/`.
+- This project is also how I learn. Prefer solutions I can understand and explain back, and tell me when you rule out a more idiomatic but more opaque option.
+- Keep this file under 100 lines.
 
 @CONTEXTE-PERSO.md
