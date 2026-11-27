@@ -34,6 +34,7 @@ football-top-scorers-analysis/
 │
 ├── scripts/
 │   ├── update_data.py
+│   ├── rebuild_processed.py
 │   ├── evaluate_models.py
 │   ├── evaluate_strategies.py
 │   └── predict.py
@@ -79,16 +80,14 @@ pip install -r requirements.txt
 4. **Rebuild the processed datasets**
 
 `data/processed/` is generated and not tracked by git, so a fresh clone has none of
-it and every other command fails on a missing file. Build it once, from the
-repository root. No network access is required:
+it. Build it once, from the repository root. No network access is required:
 
 ```bash
 python3 -m scripts.rebuild_processed
 ```
 
 Takes a few seconds. After this, the dashboard, the model evaluation and the
-strategy backtests all run. See [Rebuild Processed Datasets](#rebuild-processed-datasets-offline)
-for what it does.
+strategy backtests all run.
 
 > All commands in this README must be run from the repository root: data paths in
 > `src/core/config.py` are relative.
@@ -136,9 +135,7 @@ Reads `data/raw/` and `data/dictionaries/`, writes **only** to `data/processed/`
 makes no HTTP call. Missing inputs are reported by name before any work starts.
 
 This is the script to run after cloning, and the one to re-run after changing any
-feature-engineering code. It is also a usable non-regression check: the four
-artifacts are deterministic, so rebuilding them and diffing against the previous
-output tells you whether a change altered the data.
+feature-engineering code.
 
 ### Create / Update Datasets (network)
 
